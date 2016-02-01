@@ -10,5 +10,5 @@ Fast user management system for DNN.Platform CMS
 ### Contributors
 
 - [Davide Dex Espertini](https://github.com/iamdex/)
-Davide BraveLasagna Galimberti
+- Davide BraveLasagna Galimberti
 - [Paolo Octod Roth](https://github.com/OctoD/)
