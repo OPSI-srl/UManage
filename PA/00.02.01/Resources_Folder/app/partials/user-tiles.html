@@ -1,0 +1,30 @@
+
+<div data-ng-class="{loading: tiles.isLoading}" class="user-list">
+  <opsi-user-filters data-ng-show="tiles.usersCount &gt; 0" data-orderby="tiles.model.orderby" data-orderclause="tiles.model.orderclause" data-page-number="tiles.model.currentPage" data-pages="tiles.pages" data-user-count="tiles.usersCount"></opsi-user-filters>
+  <div data-ng-show="tiles.usersCount == 0" class="user no-users-found">
+    <div class="h1">:(</div>
+    <p data-ng-bind="tiles.translate.noUsersFound"></p>
+  </div>
+  <article data-ng-class="{'in-edit': user.edit}" data-ng-repeat="user in tiles.users | limitTo: tiles.limit" class="user list">
+    <div class="tile">
+      <header data-ng-class="{deleted: user.IsDeleted, 'not-authorized': !user.Authorised}" class="header">
+        <h3 class="name">{{user.DisplayName}}<br/><small>{{user.Username}}</small></h3><img data-ng-src="{{user.Profile_Picture_URL}}" alt="{{user.DisplayName}}" class="user-portrait small"/><span data-ng-if="user.online" data-title="This user is online!" class="badge online"></span>
+      </header>
+      <div class="content"><span class="date">{{tiles.translate.creationDate}}
+          <time>{{user.CreatedOnDate | date}}</time></span><span class="date">{{tiles.translate.lastAccess}}
+          <time>{{user.LastLoginDate | date}}</time></span>
+        <address>{{tiles.translate.email}}:<strong><a href="mailto:{{user.Email}}">{{user.Email}}&nbsp;</a></strong>{{tiles.translate.phone}}:<strong><a href="mailto:{{user.Telephone}}">{{user.Telephone}}&nbsp;</a></strong></address>
+      </div>
+      <div data-ng-class="{visible: user.edit}" class="actions">
+        <h6>{{tiles.translate.actionsAvailable}}</h6>
+        <hr/>
+        <p data-ng-if="tiles.sudo"><a data-ng-click="tiles.fullEdit(user)" class="button active">{{tiles.translate.dnnEdit}}</a></p>
+        <p><a data-ng-click="tiles.openDetail(user)" class="button safe">{{tiles.translate.fastEdit}}</a></p>
+      </div>
+      <div data-ng-class="{'icon-pencil': !user.edit, 'icon-cancel': user.edit}" data-ng-click="user.edit = !user.edit" class="edit-user"></div>
+      <div class="actions-overlay"></div>
+    </div>
+  </article>
+  <opsi-user-filters data-ng-show="tiles.usersCount &gt; 0" data-orderby="tiles.model.orderby" data-orderclause="tiles.model.orderclause" data-page-number="tiles.model.currentPage" data-pages="tiles.pages" data-user-count="tiles.usersCount"></opsi-user-filters>
+  <div data-ng-show="tiles.isLoading" class="ajax-loader"></div>
+</div>

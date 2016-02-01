@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/app/bower_components/entypo/font/entypo.css"/>
+    <script src="/app/bower_components/angular/angular.min.js"></script>
+    <script src="/app/bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
+    <script src="/app/js/controllers/controller.js"></script>
+    <script src="/app/js/directives/directives.js"></script>
+    <script src="/app/js/services/service.js"></script>
+    <script src="/app/js/app.js"></script>
+  </head>
+  <body>
+    <div data-ng-app="opsiFum" class="app">
+      <header class="app-header">
+        <h1 class="app-logo"><a>FUM <small>- Fast User Manager</small></a></h1>
+        <nav class="app-menu opsi-main-menu"><span class="icon-menu"></span>
+          <ul class="menu-main">
+            <li class="item"><a href="javascript:;">lorem</a>
+            </li>
+            <li class="item"><a href="javascript:;">ipsum</a>
+            </li>
+            <li class="item"><a href="javascript:;">dolor</a>
+            </li>
+            <li class="item"><a href="javascript:;">sit</a>
+            </li>
+            <li class="item"><a href="javascript:;">amet</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <aside data-ng-form="form_vertical_menu" data-ng-controller="MenuVertical" data-ng-class="{expandend: !collapsed}" class="app-aside">
+        <div class="menu-vertical">
+          <div data-ng-click="collapseMenu()" class="icon-menu">filters</div>
+          <h5 data-ng-bind="translate.search"></h5>
+          <p>
+            <label data-ng-bind="translate.name"></label>
+            <input type="text" name="name" data-ng-model="model.filters.name">
+          </p>
+          <p>
+            <label data-ng-bind="translate.email"></label>
+            <input type="text" name="email" data-ng-model="model.filters.email">
+          </p>
+          <hr>
+          <h5 data-ng-bind="translate.status"></h5>
+          <p><span class="checkbox-switch">
+              <input id="users-filter-online" type="checkbox" data-ng-model="model.filters.online" data-ng-true-value="true" data-ng-false-value="false">
+              <label for="users-filter-online"><span data-ng-bind="translate.online"></span></label></span></p>
+          <p><span class="checkbox-switch">
+              <input id="users-filter-deleted" type="checkbox" data-ng-model="model.filters.deleted" data-ng-true-value="true" data-ng-false-value="false">
+              <label for="users-filter-deleted"><span data-ng-bind="translate.deleted"></span></label></span></p>
+          <p><span class="checkbox-switch">
+              <input id="users-filter-authorized" type="checkbox" data-ng-model="model.filters.authorized" data-ng-true-value="true" data-ng-false-value="false">
+              <label for="users-filter-authorized"><span data-ng-bind="translate.authorized"></span></label></span></p>
+          <h5 data-ng-bind="translate.roles"></h5>
+          <p>
+            <opsi-filter-roles id="menu-vertical-roles" data-roles="roles" data-translate="translate" data-show-maximum-roles="5"></opsi-filter-roles>
+          </p>
+          <hr>
+          <h5 data-ng-bind="translate.actions"></h5>
+          <p>
+            <button data-ng-class="{'active': form_vertical_menu.$dirty, 'disabled': !form_vertical_menu.$dirty}" data-ng-click="resetFilters()" data-ng-bind="translate.reset" class="button"></button>
+          </p>
+          <p>
+            <button data-ng-click="newUser()" data-ng-bind="translate.newUser" class="button-active icon-user-add"></button>
+          </p>
+          <div class="danger-zone">
+            <h5 data-ng-bind="translate.dangerZone" class="icon-attention"></h5>
+            <p>
+              <button data-ng-bind="translate.dangerZoneRemoveUnauthorized" data-ng-click="removeUnauth()" class="icon-trash"></button>
+              <button data-ng-bind="translate.dangerZoneRemoveDeleted" data-ng-click="removeDeleted()" class="icon-trash"></button>
+            </p>
+          </div>
+        </div>
+      </aside>
+      <section class="app-section">
+        <opsi-user-tiles></opsi-user-tiles>
+        <opsi-user-detail></opsi-user-detail>
+      </section>
+      <footer class="app-footer">
+        <p>Module developed with<span class="icon-heart"></span>by <strong><a href="http://www.opsi.it" target="_blank">OPSI </a></strong>©2015. Released under GNU/GPL licence</p>
+      </footer>
+      <opsi-dialog></opsi-dialog>
+      <opsi-dialog-modal></opsi-dialog-modal>
+    </div>
+  </body>
+</html>

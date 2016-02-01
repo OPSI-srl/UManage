@@ -1,0 +1,98 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="OPSI.UManage" type="Module" version="00.02.02">
+      <friendlyName>OPSI.UManage</friendlyName>
+      <description>A Users Management module for DNN</description>
+	  <iconFile>images/umanage.png</iconFile>
+      <owner>
+        <name>OPSI Srl</name>
+        <organization>OPSI Srl</organization>
+        <url>http://www.opsi.it</url>
+        <email>info@opsi.it</email>
+      </owner>
+      <license src="license.html" />
+      <releaseNotes src="releaseNotes.html" />
+      <azureCompatible>false</azureCompatible>
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\UManage</basePath>
+            <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>00.02.01.SqlDataProvider</name>
+              <version>00.02.01</version>
+            </script>
+			<script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>01.00.00</version>
+            </script>
+          </scripts>
+        </component>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>UManage</moduleName>
+            <foldername>UManage</foldername>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>UManage</friendlyName>
+                <defaultCacheTime>-1</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/UManage/Launcher.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl>http://www.opsi.it</helpUrl>
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+			      <moduleControl>
+                    <controlKey>main</controlKey>
+                    <controlSrc>DesktopModules/UManage/Main.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl>http://www.opsi.it</helpUrl>
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <path>bin</path>
+              <name>UManage.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/UManage</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+		<component type="File">
+           <files>
+			  <basePath>DesktopModules/UManage</basePath>
+			  <file>
+				  <name>Launcher.ascx</name>
+				  <sourceFileName>Launcher.ascx</sourceFileName>
+			  </file>
+			  <file>
+				  <name>Main.ascx</name>
+				  <sourceFileName>Main.ascx</sourceFileName>
+			  </file>
+          </files>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>
