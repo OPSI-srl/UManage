@@ -23,6 +23,27 @@ Ability to perform rapid search users for the following parameters: email, name,
 
 ![alt tag](http://umanage.opsi.it/portals/5/Images/uManage/um_search.png)
 
+### Rapid Edit Access
+The innovative Fast edit joined with the classic Full DNN edit allow you to modify any information about users directly within the module. 
+
+![alt tag](http://umanage.opsi.it/portals/5/Images/uManage/um_rapidaction.png)
+
+### Innovative Management Roles
+The innovative Fast edit joined with the classic Full DNN edit allow you to modify any information about users directly within the module. 
+
+![alt tag](http://umanage.opsi.it/portals/5/Images/uManage/um_rapidrole.png)
+
+### Fast Filtering
+Filtering capabilities users based on two parameters: user status and user role.
+
+![alt tag](http://umanage.opsi.it/portals/5/Images/uManage/um_filter.png)
+
+### System Requirements
+
+DNN 8.0
+SQL Server 2008/2012
+......
+
 ### Contributing
 
 ### Roadmap
