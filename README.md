@@ -44,10 +44,6 @@ DNN 8.0
 
 SQL Server 2008/2012
 
-sdfs
-
-sdfds
-
 
 ### Contributing
 
