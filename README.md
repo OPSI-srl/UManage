@@ -15,10 +15,12 @@ UManage is equipped with powerful functions to provide maximum freedom to manage
 
 ### Usable and Fast Interface
 Gallery style interface makes it easy to identify the users.It is thanks to this feature that you can enjoy the view mode users more modern, simple and intuitive than ever.
+
 ![alt tag](http://umanage.opsi.it/portals/5/Images/uManage/um_nicegfx.png)
 
 ### Quick and Easy Search
 Ability to perform rapid search users for the following parameters: email, name, last name, display name, username and userid.
+
 ![alt tag](http://umanage.opsi.it/portals/5/Images/uManage/um_search.png)
 
 ### Contributing
