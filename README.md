@@ -41,8 +41,9 @@ Filtering capabilities users based on two parameters: user status and user role.
 ### System Requirements
 
 DNN 8.0
+
 SQL Server 2008/2012
-......
+
 
 ### Contributing
 
