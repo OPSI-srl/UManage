@@ -28,7 +28,7 @@
     <header class="app-header">
         <h1 class="app-logo"><a>UManage <small>- User Manager</small></a></h1>
         <nav class="app-menu opsi-main-menu">
-            <a class="closeme" href="<%=CloseModule_URL%>"><span class="icon-cancel" style="font-size: 2em; vertical-align: bottom;"></span>Close Umanage</a>
+            <a class="closeme" href="<%=CloseModule_URL%>">Close UManage<span class="closeme__icon icon-cancel"></span></a>
             <span style="display: none;">
                 <span class="icon-menu"></span>
                 <ul class="menu-main">

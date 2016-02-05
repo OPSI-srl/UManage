@@ -1,12 +1,12 @@
 
 <div data-ng-class="{loading: tiles.isLoading}" class="user-list">
-    <opsi-user-filters data-ng-show="tiles.usersCount &gt; 0" data-orderby="tiles.model.orderby" data-orderclause="tiles.model.orderclause" data-page-number="tiles.model.currentPage" data-pages="tiles.pages" data-user-count="tiles.usersCount"></opsi-user-filters>
+    <opsi-user-filters data-ng-show="tiles.usersCount > 0" data-orderby="tiles.model.orderby" data-orderclause="tiles.model.orderclause" data-page-number="tiles.model.currentPage" data-pages="tiles.pages" data-user-count="tiles.usersCount"></opsi-user-filters>
     <div data-ng-show="tiles.usersCount == 0" class="user no-users-found">
         <div class="h1">:(</div>
         <p data-ng-bind="tiles.translate.noUsersFound"></p>
     </div>
-    <div style="text-align:right; padding-right:20px" data-ng-show="tiles.usersCount > 0">
-        <span class="button safe" data-ng-click="tiles.exportUsers()"> <i class="fa fa-file-excel-o"></i> {{tiles.translate.excelExport}}</span>
+    <div style="text-align:right; padding-right:20px" data-ng-show="tiles.usersCount > 0" class="">
+        <span class="button safe ng-binding" data-ng-click="tiles.exportUsers()"> <i class="fa fa-file-excel-o"></i> {{tiles.translate.excelExport}}</span>
     </div>
     <div class="type-view-tiles" data-ng-hide="tiles.typeView==1">
         <article data-ng-class="{'in-edit': user.edit}" data-ng-repeat="user in tiles.users | limitTo: tiles.limit" class="user list">
@@ -37,7 +37,7 @@
             </div>
         </article>
     </div>
-    <div class="type-view-grid" data-ng-hide="tiles.typeView==0" style="margin-top: 20px;">
+    <div class="type-view-grid" data-ng-hide="tiles.typeView==0" style="margin-top:20px;">
         <table>
             <tr class="head-table">
                 <td>{{tiles.translate.userName}}</td>

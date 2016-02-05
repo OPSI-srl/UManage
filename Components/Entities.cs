@@ -39,7 +39,6 @@ namespace OPSI.UManage.Entities
         public string Profile_Picture_FileID { get; set; }
 
         [ReadOnlyColumn]
-
         public int TotalRows { get; set; }
         [ReadOnlyColumn]
         public int Pages { get; set; }

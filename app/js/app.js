@@ -17,18 +17,18 @@
       roles: {},
       webservice: {
         dangerZone: {
-          deleted: "" + modulePath + "Users/Users_RemoveDeleted",
-          unauth: "" + modulePath + "Users/Users_DeleteUnauthorized"
+          deleted: "" + modulePath + "Users/UsersRemoveDeleted",
+          unauth: "" + modulePath + "Users/UsersDeleteUnauthorized"
         },
         filters: "" + modulePath + "api/",
-        userAuthorize: "" + modulePath + "Users/Users_Authorize?userid={{id}}&mode={{mode}}",
-        userDelete: "" + modulePath + "Users/Users_Delete?userid={{id}}&mode={{mode}}",
-        userList: "" + modulePath + "Users/Users_List?key={{name}}&roles={{roles}}&deleted={{deleted}}&unauth={{unauth}}&ResultsPerPage={{results}}&CurrentPage={{currentPage}}&orderby={{orderby}}&orderclause={{orderclause}}",
-        userResetPassword: "" + modulePath + "Users/Users_SendPasswordLink?userid=",
-        userSingle: "" + modulePath + "Users/Users_Get?userid=",
-        userSetRole: "" + modulePath + "Roles/Roles_AddRemove?userid={{id}}&role={{rolename}}&mode={{mode}}",
-        userUpdate: "" + modulePath + "Users/Users_Update",
-        roles: "" + modulePath + "Roles/Roles_List"
+        userAuthorize: "" + modulePath + "Users/UsersAuthorize?userid={{id}}&mode={{mode}}",
+        userDelete: "" + modulePath + "Users/UsersDelete?userid={{id}}&mode={{mode}}",
+        userList: "" + modulePath + "Users/UsersList?key={{name}}&roles={{roles}}&deleted={{deleted}}&unauth={{unauth}}&ResultsPerPage={{results}}&CurrentPage={{currentPage}}&orderby={{orderby}}&orderclause={{orderclause}}",
+        userResetPassword: "" + modulePath + "Users/UsersSendPasswordLink?userid=",
+        userSingle: "" + modulePath + "Users/UsersGet?userid=",
+        userSetRole: "" + modulePath + "Roles/RolesAddRemove?userid={{id}}&role={{rolename}}&mode={{mode}}",
+        userUpdate: "" + modulePath + "Users/UsersUpdate",
+        roles: "" + modulePath + "Roles/RolesList"
       }
     };
   });

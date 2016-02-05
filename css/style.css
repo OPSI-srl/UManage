@@ -1812,7 +1812,7 @@ type-view-grid table tr.deleted td {
   background-color: #FFF;
   border: 1px solid;
   color: #5F7196!important;
-  padding: 5px 15px 5px 5px;
+  padding: 13px 5px 5px 5px;
   text-align: center;
   transition: all 0.2s cubic-bezier(.39,.58,.57,1) 0.1s;
 }
@@ -1836,3 +1836,7 @@ type-view-grid table tr.deleted td {
   transition: all 0.2s cubic-bezier(.39,.58,.57,1) 0.1s;
 }
 
+.icon-cancel:before {
+    margin-right: 0!important;
+    font-size: 2em;
+}

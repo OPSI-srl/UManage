@@ -12,3 +12,8 @@ S:\OPSI\dev.dnn.711\bin\UManage.pdb
 S:\OPSI\dev.dnn.711\DesktopModules\UManage\obj\Debug\UManage.csprojResolveAssemblyReference.cache
 S:\OPSI\dev.dnn.711\DesktopModules\UManage\obj\Debug\UManage.dll
 S:\OPSI\dev.dnn.711\DesktopModules\UManage\obj\Debug\UManage.pdb
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\bin\UManage.dll
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\bin\UManage.pdb
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\DesktopModules\UManage\obj\Debug\UManage.dll
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\DesktopModules\UManage\obj\Debug\UManage.pdb
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\DesktopModules\UManage\obj\Debug\UManage.csprojResolveAssemblyReference.cache

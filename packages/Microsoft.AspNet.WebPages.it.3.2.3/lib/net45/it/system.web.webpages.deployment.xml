@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Web.WebPages.Deployment</name>
+  </assembly>
+  <members>
+    <member name="T:System.Web.WebPages.Deployment.PreApplicationStartCode">
+      <summary>Fornisce un punto di registrazione per il codice di preavvio dell'applicazione per la distribuzione di pagine Web.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.PreApplicationStartCode.Start">
+      <summary>Registra il codice di preavvio dell'applicazione per la distribuzione di pagine Web.</summary>
+    </member>
+    <member name="T:System.Web.WebPages.Deployment.WebPagesDeployment">
+      <summary>Questo tipo/membro supporta l'infrastruttura .NET Framework e non può essere utilizzato direttamente dal codice.Fornisce metodi utilizzati per ottenere informazioni sulla distribuzione dell'applicazione Web.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetAssemblyPath(System.Version)">
+      <summary>Questo tipo/membro supporta l'infrastruttura .NET Framework e non può essere utilizzato direttamente dal codice.Ottiene il percorso dell'assembly per la distribuzione di Web Pages.</summary>
+      <returns>Percorso dell'assembly per la distribuzione di Web Pages.</returns>
+      <param name="version">Versione di Web Pages.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetExplicitWebPagesVersion(System.String)">
+      <summary>Questo tipo/membro supporta l'infrastruttura .NET Framework e non può essere utilizzato direttamente dal codice.Ottiene la versione di Web Pages dal percorso binario specificato.</summary>
+      <returns>Versione di Web Pages.</returns>
+      <param name="path">Percorso binario per Web Pages.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetIncompatibleDependencies(System.String)">
+      <summary>Questo tipo/membro supporta l'infrastruttura .NET Framework e non può essere utilizzato direttamente dal codice.Ottiene i riferimenti all'assembly dal percorso specificato, indipendentemente dalla versione di Web Pages.</summary>
+      <returns>Dizionario contenente i riferimenti all'assembly delle Web Pages e la relativa versione.</returns>
+      <param name="appPath">Percorso dell'applicazione Web Pages.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetMaxVersion">
+      <summary>Questo tipo/membro supporta l'infrastruttura .NET Framework e non può essere utilizzato direttamente dal codice.Ottiene la versione massima degli assembly Web Pages caricati.</summary>
+      <returns>Versione massima degli assembly Web Pages caricati.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetVersion(System.String)">
+      <summary>Ottiene la versione di Web Pages dal percorso specificato.</summary>
+      <returns>Versione di Web Pages.</returns>
+      <param name="path">Percorso della directory radice per l'applicazione.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetVersionWithoutEnabledCheck(System.String)">
+      <summary>Questo tipo/membro supporta l'infrastruttura .NET Framework e non può essere utilizzato direttamente dal codice.Ottiene la versione di Web Pages utilizzando le impostazioni di configurazione con il percorso specificato.</summary>
+      <returns>Versione di Web Pages.</returns>
+      <param name="path">Percorso delle impostazioni dell'applicazione.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetWebPagesAssemblies">
+      <summary>Questo tipo/membro supporta l'infrastruttura .NET Framework e non può essere utilizzato direttamente dal codice.Restituisce gli assembly per la distribuzione di Web Pages.</summary>
+      <returns>Elenco contenente gli assembly per la distribuzione di Web Pages.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.IsEnabled(System.String)">
+      <summary>Questo tipo/membro supporta l'infrastruttura .NET Framework e non può essere utilizzato direttamente dal codice.Indica se la distribuzione di Web Pages è abilitata.</summary>
+      <returns>true se la distribuzione di Web Pages è abilitata. In caso contrario, false.</returns>
+      <param name="path">Percorso della distribuzione di Web Pages.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.IsExplicitlyDisabled(System.String)">
+      <summary>Questo tipo/membro supporta l'infrastruttura .NET Framework e non può essere utilizzato direttamente dal codice.Indica se la distribuzione di Web Pages è esplicitamente disabilitata.</summary>
+      <returns>true se la distribuzione di Web Pages è esplicitamente disabilitata. In caso contrario, false.</returns>
+      <param name="path">Percorso della distribuzione di Web Pages.</param>
+    </member>
+  </members>
+</doc>

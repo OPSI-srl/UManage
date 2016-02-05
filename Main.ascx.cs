@@ -35,6 +35,8 @@ namespace OPSI.UManage.Pages
                 DotNetNuke.Framework.ServicesFramework.Instance.RequestAjaxAntiForgerySupport();
                 DotNetNuke.Framework.ServicesFramework.Instance.RequestAjaxScriptSupport();
 
+                
+                
                 if (this.IsPostBack == false)
                 {
 

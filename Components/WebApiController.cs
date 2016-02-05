@@ -314,7 +314,7 @@ namespace OPSI.UManage.WebApi
 
 
 
-
+        [AllowAnonymous]
         [DnnModuleAuthorize(AccessLevel = DotNetNuke.Security.SecurityAccessLevel.View)]
         [HttpGet]
         [ValidateAntiForgeryToken]
@@ -378,7 +378,7 @@ namespace OPSI.UManage.WebApi
                     if (v_UserInfo.IsInRole(v_RoleInfo.RoleName) == false && mode == "add")
                     {
 
-                        v_RoleController.AddUserRole(v_Current_Portal_ID, userid, v_RoleInfo.RoleID, DateTime.MinValue);
+                        v_RoleController.AddUserRole(v_Current_Portal_ID, userid, v_RoleInfo.RoleID,  DateTime.MinValue);
                         return Request.CreateResponse(HttpStatusCode.OK, "ok role added");
                     }
 
@@ -402,10 +402,7 @@ namespace OPSI.UManage.WebApi
 
 
     }
-
-
-
-
+    
 
 }
 

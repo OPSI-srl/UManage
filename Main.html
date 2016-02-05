@@ -1,0 +1,91 @@
+﻿[JavaScript:{ path: "~/DesktopModules/UManage/app/localization/localization.js"}]
+[JavaScript:{ path: "~/DesktopModules/UManage/app/bower_components/angular/angular.min.js"}]
+[JavaScript:{ path: "~/DesktopModules/UManage/app/js/controllers/controller.js"}]
+[JavaScript:{ path: "~/DesktopModules/UManage/app/js/directives/directives.js"}]
+[JavaScript:{ path: "~/DesktopModules/UManage/app/js/services/service.js"}]
+[JavaScript:{ path: "~/DesktopModules/UManage/app/js/app.js"}]
+
+<!-- the app css -->
+[Css:{ path: "~/DesktopModules/UManage/css/style.css"}]
+[Css:{ path: "~/DesktopModules/UManage/app/bower_components/entypo/font/entypo.css"}]
+
+<!-- resx file -->
+[ModuleAction:{localResourceFile: "~/DesktopModules/UManage/App_LocalResources/Main.resx" }]
+
+<!-- some help -->
+<input type="hidden" ID="VAR_ModulePath" value="" />
+<input type="hidden" ID="VAR_ProfilePicBasePath" value="" />
+<input type="hidden" ID="VAR_FullEditPath" value="" />
+<input type="hidden" ID="VAR_IsAdmin" value="" />
+<input type="hidden" ID="VAR_PageBase" value="" />
+<input type="hidden" ID="VAR_CurrentLanguage" value="" />
+<input type="hidden" ID="VAR_PortalID" value="" />
+
+<!-- the app view -->
+<section data-ng-app="opsiModule" class="app">
+    <header class="app-header">
+        <h1 class="app-logo"><a>UManage <small>- User Manager</small></a></h1>
+        <nav class="app-menu opsi-main-menu">
+            <a class="closeme" href="<%=CloseModule_URL%>">Close UManage<span class="closeme__icon icon-cancel"></span></a>
+            <span style="display: none;">
+                <span class="icon-menu"></span>
+                <ul class="menu-main">
+                    <li class="item">
+                        <a href="<%=CloseModule_URL%>">Go back</a>
+                    </li>
+                </ul>
+            </span>
+        </nav>
+    </header>
+    <app-menu></app-menu>
+    <main class="app-section">
+        <opsi-user-tiles></opsi-user-tiles>
+        <opsi-user-detail></opsi-user-detail>
+    </main>
+    <footer class="app-footer">
+        Module developed with <span class="icon-heart" title="code"></span>by <strong><a href="http://www.opsi.it" target="_blank">OPSI </a></strong>©2015. Released under GNU/GPL licence.
+    </footer>
+    <opsi-dialog></opsi-dialog>
+    <opsi-dialog-modal></opsi-dialog-modal>
+    <app-error></app-error>
+</section>
+
+<!-- ng-app config -->
+<script>
+    ; (function () {
+        // getting a new serviceFramework instance for the angular app
+        var angular, app, serviceFramework;
+
+        angular = this.angular;
+        var moduleId = parseInt("[ModuleContext:ModuleId]");
+        var sudo = parseInt("[ModuleContext:issuperuser]");
+        var portalid = parseInt("[ModuleContext:portalid]");
+
+        serviceFramework = $.ServicesFramework(moduleId);
+        console.log(serviceFramework)
+        angular.module('opsiModule')
+        // configuring http provider
+        .config(function ($httpProvider) {
+            return $httpProvider.defaults.headers.get = $httpProvider.defaults.headers.post = {
+                Accept: 'text/html',
+                'Content-Type': 'text/html; charset=UTF-8',
+                ModuleId: serviceFramework.getModuleId(),
+                RequestVerificationToken: serviceFramework.getAntiForgeryValue(),
+                TabId: serviceFramework.getTabId(),
+                'X-Requested-With': 'XMLHttpRequest'
+            };
+        })
+        // configuring fum provider
+        .config(function ($fumProvider) {
+            //$fumProvider.setProperty('fullEditPath', '<%= VAR_FullEditPath.Text %>');
+            $fumProvider.setProperty('moduleApi', serviceFramework.getServiceRoot('UManage'));
+            $fumProvider.setProperty('moduleID', serviceFramework.getModuleId());
+            //$fumProvider.setProperty('modulePath', '<%=VAR_ModulePath.Text %>');
+            //$fumProvider.setProperty('profilePicPath', '<%=VAR_ProfilePicBasePath.Text %>');
+            $fumProvider.setProperty('sudo', sudo);
+            $fumProvider.setProperty('tabID', serviceFramework.getTabId());
+            //$fumProvider.setProperty('currentLanguage', '<%=VAR_CurrentLanguage.Text %>');
+            $fumProvider.setProperty('portalID', portalid);
+        });
+    }).call(this);
+</script>

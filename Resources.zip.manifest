@@ -45,6 +45,10 @@
       <name>service.js</name>
     </file>
     <file>
+      <path>app/localization/</path>
+      <name>localization.js</name>
+    </file>
+    <file>
       <path>app/partials/</path>
       <name>partial.html</name>
     </file>
@@ -66,11 +70,11 @@
     </file>
     <file>
       <path>images/</path>
-      <name>Thumbs.db</name>
+      <name>logo.png</name>
     </file>
     <file>
       <path>images/</path>
-      <name>umanage.png</name>
+      <name>Thumbs.db</name>
     </file>
   </files>
 </dotnetnuke>

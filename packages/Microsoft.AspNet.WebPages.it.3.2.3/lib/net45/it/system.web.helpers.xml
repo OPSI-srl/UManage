@@ -1,0 +1,839 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Web.Helpers</name>
+  </assembly>
+  <members>
+    <member name="T:System.Web.Helpers.Chart">
+      <summary>Visualizza i dati sotto forma di grafico.</summary>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.#ctor(System.Int32,System.Int32,System.String,System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Web.Helpers.Chart" />.</summary>
+      <param name="width">Larghezza, in pixel, dell'immagine completa del grafico.</param>
+      <param name="height">Altezza, in pixel, dell'immagine completa del grafico.</param>
+      <param name="theme">(Facoltativo) Modello (tema) da applicare al grafico.</param>
+      <param name="themePath">(Facoltativo) Percorso e nome file del modello (tema) da applicare al grafico.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.AddLegend(System.String,System.String)">
+      <summary>Aggiunge una legenda al grafico.</summary>
+      <returns>Grafico.</returns>
+      <param name="title">Testo del titolo della legenda.</param>
+      <param name="name">Nome univoco della legenda.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.AddSeries(System.String,System.String,System.String,System.String,System.String,System.Int32,System.Collections.IEnumerable,System.String,System.Collections.IEnumerable,System.String)">
+      <summary>Fornisce punti dati e attributi della serie per il grafico.</summary>
+      <returns>Grafico.</returns>
+      <param name="name">Nome univoco della serie.</param>
+      <param name="chartType">Tipo di grafico di una serie.</param>
+      <param name="chartArea">Nome dell'area del grafico utilizzata per tracciare la serie di dati.</param>
+      <param name="axisLabel">Testo dell'etichetta dell'asse per la serie.</param>
+      <param name="legend">Nome della serie associata alla legenda.</param>
+      <param name="markerStep">Granularità dei marcatori dei punti dati.</param>
+      <param name="xValue">Valori da tracciare lungo l'asse x.</param>
+      <param name="xField">Nome del campo per i valori x.</param>
+      <param name="yValues">Valori da tracciare lungo l'asse y.</param>
+      <param name="yFields">Elenco di nomi di campo delimitati da virgole per i valori y.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.AddTitle(System.String,System.String)">
+      <summary>Aggiunge un titolo al grafico.</summary>
+      <returns>Grafico.</returns>
+      <param name="text">Testo del titolo.</param>
+      <param name="name">Nome univoco del titolo.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.DataBindCrossTable(System.Collections.IEnumerable,System.String,System.String,System.String,System.String,System.String)">
+      <summary>Associa un grafico a una tabella dati, creando un'unica serie per ogni valore univoco di una colonna.</summary>
+      <returns>Grafico.</returns>
+      <param name="dataSource">Origine dati del grafico.</param>
+      <param name="groupByField">Nome della colonna utilizzata per raggruppare i dati nella serie.</param>
+      <param name="xField">Nome della colonna per i valori x.</param>
+      <param name="yFields">Elenco separato da virgole di nomi delle colonne per i valori y.</param>
+      <param name="otherFields">Altre proprietà dei punti dati che è possibile associare.</param>
+      <param name="pointSortOrder">Ordine in base al quale verranno ordinate le serie.Il valore predefinito è "Ascending".</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.DataBindTable(System.Collections.IEnumerable,System.String)">
+      <summary>Crea e associa i dati della serie alla tabella dati specificata, popolando facoltativamente più valori x.</summary>
+      <returns>Grafico.</returns>
+      <param name="dataSource">Origine dati del grafico.Può essere qualsiasi oggetto <see cref="T:System.Collections.IEnumerable" />.</param>
+      <param name="xField">Nome della colonna di tabella utilizzata per i valori x della serie.</param>
+    </member>
+    <member name="P:System.Web.Helpers.Chart.FileName">
+      <summary>Ottiene o imposta il nome del file che contiene l'immagine del grafico.</summary>
+      <returns>Nome del file.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.GetBytes(System.String)">
+      <summary>Restituisce un'immagine del grafico come matrice di byte.</summary>
+      <returns>Grafico.</returns>
+      <param name="format">Formato dell'immagine.Il valore predefinito è "jpeg".</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.GetFromCache(System.String)">
+      <summary>Recupera il grafico specificato dalla cache.</summary>
+      <returns>Grafico.</returns>
+      <param name="key">ID dell'elemento della cache che contiene il grafico da recuperare.La chiave viene impostata quando si chiama il metodo <see cref="M:System.Web.Helpers.Chart.SaveToCache(System.String,System.Int32,System.Boolean)" />.</param>
+    </member>
+    <member name="P:System.Web.Helpers.Chart.Height">
+      <summary>Ottiene o imposta l'altezza, in pixel, dell'immagine del grafico.</summary>
+      <returns>Altezza del grafico.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.Save(System.String,System.String)">
+      <summary>Salva un'immagine del grafico nel file specificato.</summary>
+      <returns>Grafico.</returns>
+      <param name="path">Nome e percorso del file di immagine.</param>
+      <param name="format">Formato del file di immagine, ad esempio "png" o "jpeg".</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.SaveToCache(System.String,System.Int32,System.Boolean)">
+      <summary>Salva un grafico nella cache del sistema.</summary>
+      <returns>ID dell'elemento della cache che contiene il grafico.</returns>
+      <param name="key">ID del grafico nella cache.</param>
+      <param name="minutesToCache">Numero di minuti in cui l'immagine del grafico deve essere mantenuta nella cache.Il valore predefinito è 20.</param>
+      <param name="slidingExpiration">true per indicare che la scadenza dell'elemento grafico nella cache viene reimpostata ogni volta che si accede all'elemento oppure false per indicare che la scadenza si basa su un intervallo assoluto, dal momento in cui l'elemento è stato aggiunto alla cache.Il valore predefinito è true.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.SaveXml(System.String)">
+      <summary>Salva un grafico come file XML.</summary>
+      <returns>Grafico.</returns>
+      <param name="path">Nome e percorso del file XML.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.SetXAxis(System.String,System.Double,System.Double)">
+      <summary>Imposta i valori per l'asse orizzontale.</summary>
+      <returns>Grafico.</returns>
+      <param name="title">Titolo dell'asse x.</param>
+      <param name="min">Valore minimo dell'asse x.</param>
+      <param name="max">Valore massimo dell'asse x.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.SetYAxis(System.String,System.Double,System.Double)">
+      <summary>Imposta i valori per l'asse verticale.</summary>
+      <returns>Grafico.</returns>
+      <param name="title">Titolo dell'asse y.</param>
+      <param name="min">Valore minimo dell'asse y.</param>
+      <param name="max">Valore massimo dell'asse y.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.ToWebImage(System.String)">
+      <summary>Crea un oggetto <see cref="T:System.Web.Helpers.WebImage" /> in base all'oggetto <see cref="T:System.Web.Helpers.Chart" /> corrente.</summary>
+      <returns>Grafico.</returns>
+      <param name="format">Formato di immagine da utilizzare per il salvataggio dell'oggetto <see cref="T:System.Web.Helpers.WebImage" />.Il valore predefinito è "jpeg".Nel parametro <paramref name="format" /> non viene fatta distinzione tra maiuscole e minuscole.</param>
+    </member>
+    <member name="P:System.Web.Helpers.Chart.Width">
+      <summary>Ottiene o imposta la larghezza, in pixel, dell'immagine del grafico.</summary>
+      <returns>Larghezza del grafico.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.Write(System.String)">
+      <summary>Esegue il rendering dell'output dell'oggetto <see cref="T:System.Web.Helpers.Chart" /> come immagine.</summary>
+      <returns>Grafico.</returns>
+      <param name="format">Formato dell'immagine.Il valore predefinito è "jpeg".</param>
+    </member>
+    <member name="M:System.Web.Helpers.Chart.WriteFromCache(System.String,System.String)">
+      <summary>Esegue il rendering dell'output di un oggetto <see cref="T:System.Web.Helpers.Chart" /> memorizzato nella cache come immagine.</summary>
+      <returns>Grafico.</returns>
+      <param name="key">ID del grafico nella cache.</param>
+      <param name="format">Formato dell'immagine.Il valore predefinito è "jpeg".</param>
+    </member>
+    <member name="T:System.Web.Helpers.ChartTheme">
+      <summary>Specifica i temi visivi per un oggetto <see cref="T:System.Web.Helpers.Chart" />.</summary>
+    </member>
+    <member name="F:System.Web.Helpers.ChartTheme.Blue">
+      <summary>Tema per grafici 2D che presenta un contenitore visivo con sfumatura blu, angoli arrotondati, ombreggiatura esterna e griglie a contrasto elevato. </summary>
+    </member>
+    <member name="F:System.Web.Helpers.ChartTheme.Green">
+      <summary>Tema per grafici 2D che presenta un contenitore visivo con sfumatura verde, angoli arrotondati, ombreggiatura esterna e griglie a basso contrasto. </summary>
+    </member>
+    <member name="F:System.Web.Helpers.ChartTheme.Vanilla">
+      <summary>Tema per grafici 2D che non presenta né contenitore visivo né griglie.</summary>
+    </member>
+    <member name="F:System.Web.Helpers.ChartTheme.Vanilla3D">
+      <summary>Tema per grafici 3D che presenta etichette limitate, griglie sparse a contrasto elevato e non presenta alcun contenitore visivo.</summary>
+    </member>
+    <member name="F:System.Web.Helpers.ChartTheme.Yellow">
+      <summary>Tema per grafici 2D che presenta un contenitore visivo con sfumatura gialla, angoli arrotondati, ombreggiatura esterna e griglie a contrasto elevato.</summary>
+    </member>
+    <member name="T:System.Web.Helpers.Crypto">
+      <summary>Fornisce metodi per generare valori hash e crittografare password e altri dati sensibili.</summary>
+    </member>
+    <member name="M:System.Web.Helpers.Crypto.GenerateSalt(System.Int32)">
+      <summary>Genera una sequenza crittograficamente complessa di valori a byte casuali.</summary>
+      <returns>Valore salt generato come stringa codificata in base 64.</returns>
+      <param name="byteLength">Numero di byte crittograficamente casuali da generare.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Crypto.Hash(System.Byte[],System.String)">
+      <summary>Restituisce un valore hash per la matrice di byte specificata.</summary>
+      <returns>Valore hash per <paramref name="input" /> sotto forma di stringa di caratteri esadecimali.</returns>
+      <param name="input">Dati per i quali fornire un valore hash.</param>
+      <param name="algorithm">Algoritmo utilizzato per generare il valore hash.Il valore predefinito è "sha256".</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="input" /> è null.</exception>
+    </member>
+    <member name="M:System.Web.Helpers.Crypto.Hash(System.String,System.String)">
+      <summary>Restituisce un valore hash per la stringa specificata.</summary>
+      <returns>Valore hash per <paramref name="input" /> sotto forma di stringa di caratteri esadecimali.</returns>
+      <param name="input">Dati per i quali fornire un valore hash.</param>
+      <param name="algorithm">Algoritmo utilizzato per generare il valore hash.Il valore predefinito è "sha256".</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="input" /> è null.</exception>
+    </member>
+    <member name="M:System.Web.Helpers.Crypto.HashPassword(System.String)">
+      <summary>Restituisce un valore hash RFC 2898 per la password specificata.</summary>
+      <returns>Valore hash per <paramref name="password" /> come stringa codificata in base 64.</returns>
+      <param name="password">Password per cui generare un valore hash.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="password" /> è null.</exception>
+    </member>
+    <member name="M:System.Web.Helpers.Crypto.SHA1(System.String)">
+      <summary>Restituisce un valore hash SHA-1 per la stringa specificata.</summary>
+      <returns>Valore hash SHA-1 per <paramref name="input" /> sotto forma di stringa di caratteri esadecimali.</returns>
+      <param name="input">Dati per i quali fornire un valore hash.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="input" /> è null.</exception>
+    </member>
+    <member name="M:System.Web.Helpers.Crypto.SHA256(System.String)">
+      <summary>Restituisce un valore hash SHA-256 per la stringa specificata.</summary>
+      <returns>Valore hash SHA-256 per <paramref name="input" /> sotto forma di stringa di caratteri esadecimali.</returns>
+      <param name="input">Dati per i quali fornire un valore hash.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="input" /> è null.</exception>
+    </member>
+    <member name="M:System.Web.Helpers.Crypto.VerifyHashedPassword(System.String,System.String)">
+      <summary>Determina se il valore hash RFC 2898 e la password sono una corrispondenza crittografica.</summary>
+      <returns>true se il valore hash è una corrispondenza crittografica per la password. In caso contrario, false.</returns>
+      <param name="hashedPassword">Valore hash RFC 2898 calcolato in precedenza come stringa codificata in base 64.</param>
+      <param name="password">Password non crittografata da confrontare crittograficamente con <paramref name="hashedPassword" />.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="hashedPassword" /> o <paramref name="password" /> è null.</exception>
+    </member>
+    <member name="T:System.Web.Helpers.DynamicJsonArray">
+      <summary>Rappresenta una serie di valori come una matrice di tipo JavaScript tramite le funzionalità dinamiche di Dynamic Language Runtime (DLR).</summary>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonArray.#ctor(System.Object[])">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Web.Helpers.DynamicJsonArray" /> utilizzando i valori degli elementi della matrice specificati.</summary>
+      <param name="arrayValues">Matrice di oggetti contenente i valori da aggiungere all'istanza di <see cref="T:System.Web.Helpers.DynamicJsonArray" />.</param>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonArray.GetEnumerator">
+      <summary>Restituisce un enumeratore che può essere utilizzato per scorrere gli elementi dell'istanza di <see cref="T:System.Web.Helpers.DynamicJsonArray" />.</summary>
+      <returns>Enumeratore che può essere utilizzato per scorrere gli elementi della matrice JSON.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.DynamicJsonArray.Item(System.Int32)">
+      <summary>Restituisce il valore all'indice specificato nell'istanza di <see cref="T:System.Web.Helpers.DynamicJsonArray" />.</summary>
+      <returns>Valore all'indice specificato.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.DynamicJsonArray.Length">
+      <summary>Restituisce il numero di elementi contenuti nell'istanza di <see cref="T:System.Web.Helpers.DynamicJsonArray" />.</summary>
+      <returns>Numero di elementi contenuti nella matrice JSON.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonArray.op_Implicit(System.Web.Helpers.DynamicJsonArray)~System.Object[]">
+      <summary>Converte un'istanza di <see cref="T:System.Web.Helpers.DynamicJsonArray" /> in una matrice di oggetti.</summary>
+      <returns>Matrice di oggetti che rappresenta la matrice JSON.</returns>
+      <param name="obj">Matrice JSON da convertire.</param>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonArray.op_Implicit(System.Web.Helpers.DynamicJsonArray)~System.Array">
+      <summary>Converte un'istanza di <see cref="T:System.Web.Helpers.DynamicJsonArray" /> in una matrice di oggetti.</summary>
+      <returns>Matrice di oggetti che rappresenta la matrice JSON.</returns>
+      <param name="obj">Matrice JSON da convertire.</param>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonArray.System#Collections#Generic#IEnumerable{T}#GetEnumerator">
+      <summary>Restituisce un enumeratore che può essere utilizzato per scorrere un insieme.</summary>
+      <returns>Enumeratore che può essere utilizzato per scorrere la raccolta.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonArray.TryConvert(System.Dynamic.ConvertBinder,System.Object@)">
+      <summary>Converte l'istanza di <see cref="T:System.Web.Helpers.DynamicJsonArray" /> in un tipo compatibile.</summary>
+      <returns>true se la conversione ha avuto esito positivo. In caso contrario, false.</returns>
+      <param name="binder">Fornisce informazioni sull'operazione di conversione.</param>
+      <param name="result">Quando termina, questo metodo restituisce il risultato dell'operazione di conversione del tipo.Questo parametro viene passato senza inizializzazione.</param>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonArray.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+      <summary>Verifica l'istanza di <see cref="T:System.Web.Helpers.DynamicJsonArray" /> per i membri dinamici (non supportati) in modo da non generare un'eccezione.</summary>
+      <returns>true in tutti i casi.</returns>
+      <param name="binder">Fornisce informazioni sull'operazione get.</param>
+      <param name="result">Quando termina, questo metodo restituisce null.Questo parametro viene passato senza inizializzazione.</param>
+    </member>
+    <member name="T:System.Web.Helpers.DynamicJsonObject">
+      <summary>Rappresenta una raccolta di valori come un oggetto di tipo JavaScript utilizzando le funzionalità di Dynamic Language Runtime (DLR).</summary>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonObject.#ctor(System.Collections.Generic.IDictionary{System.String,System.Object})">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Web.Helpers.DynamicJsonObject" /> utilizzando i valori dei campi specificati.</summary>
+      <param name="values">Dizionario di nomi e valori di proprietà da aggiungere all'istanza di <see cref="T:System.Web.Helpers.DynamicJsonObject" /> come membri dinamici.</param>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonObject.GetDynamicMemberNames">
+      <summary>Restituisce un elenco contenente il nome di tutti i membri dinamici (campi JSON) dell'istanza di <see cref="T:System.Web.Helpers.DynamicJsonObject" />.</summary>
+      <returns>Elenco contenente il nome di tutti i membri dinamici (campi JSON).</returns>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonObject.TryConvert(System.Dynamic.ConvertBinder,System.Object@)">
+      <summary>Converte l'istanza di <see cref="T:System.Web.Helpers.DynamicJsonObject" /> in un tipo compatibile.</summary>
+      <returns>true in tutti i casi.</returns>
+      <param name="binder">Fornisce informazioni sull'operazione di conversione.</param>
+      <param name="result">Quando termina, questo metodo restituisce il risultato dell'operazione di conversione del tipo.Questo parametro viene passato senza inizializzazione.</param>
+      <exception cref="T:System.InvalidOperationException">Non è stato possibile convertire l'istanza <see cref="T:System.Web.Helpers.DynamicJsonObject" /> nel tipo specificato. </exception>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonObject.TryGetIndex(System.Dynamic.GetIndexBinder,System.Object[],System.Object@)">
+      <summary>Ottiene il valore di un campo <see cref="T:System.Web.Helpers.DynamicJsonObject" /> tramite l'indice specificato.</summary>
+      <returns>true in tutti i casi.</returns>
+      <param name="binder">Fornisce informazioni sull'operazione get indicizzata.</param>
+      <param name="indexes">Matrice contenente un singolo oggetto che indicizza il campo in base al nome.L'oggetto deve essere convertibile in una stringa che specifica il nome del campo JSON da restituire.Se sono specificati più indici, quando il metodo termina <paramref name="result" /> restituisce null.</param>
+      <param name="result">Quando termina, il metodo restituisce il valore del campo indicizzato o null se l'operazione get ha avuto esito negativo.Questo parametro viene passato senza inizializzazione.</param>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonObject.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+      <summary>Ottiene il valore di un campo <see cref="T:System.Web.Helpers.DynamicJsonObject" /> tramite il nome specificato.</summary>
+      <returns>true in tutti i casi.</returns>
+      <param name="binder">Fornisce informazioni sull'operazione get.</param>
+      <param name="result">Quando termina, il metodo restituisce il valore del campo o null se l'operazione ha avuto esito negativo.Questo parametro viene passato senza inizializzazione.</param>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonObject.TrySetIndex(System.Dynamic.SetIndexBinder,System.Object[],System.Object)">
+      <summary>Imposta il valore di un campo <see cref="T:System.Web.Helpers.DynamicJsonObject" /> tramite l'indice specificato.</summary>
+      <returns>true in tutti i casi.</returns>
+      <param name="binder">Fornisce informazioni sull'operazione di impostazione indicizzata.</param>
+      <param name="indexes">Matrice contenente un singolo oggetto che indicizza il campo in base al nome.L'oggetto deve essere convertibile in una stringa che specifica il nome del campo JSON da restituire.Se sono specificati più indici, non viene modificato né aggiunto alcun campo.</param>
+      <param name="value">Valore su cui impostare il campo.</param>
+    </member>
+    <member name="M:System.Web.Helpers.DynamicJsonObject.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+      <summary>Imposta il valore di un campo <see cref="T:System.Web.Helpers.DynamicJsonObject" /> tramite il nome specificato.</summary>
+      <returns>true in tutti i casi.</returns>
+      <param name="binder">Fornisce informazioni sull'operazione set.</param>
+      <param name="value">Valore su cui impostare il campo.</param>
+    </member>
+    <member name="T:System.Web.Helpers.Json">
+      <summary>Fornisce metodi per l'utilizzo dei dati in formato JavaScript Object Notation (JSON).</summary>
+    </member>
+    <member name="M:System.Web.Helpers.Json.Decode``1(System.String)">
+      <summary>Converte i dati in formato JavaScript Object Notation (JSON) nell'elenco di dati fortemente tipizzato specificato.</summary>
+      <returns>Dati con codifica JSON convertiti in un elenco fortemente tipizzato.</returns>
+      <param name="value">Stringa codificata in formato JSON da convertire.</param>
+      <typeparam name="T">Tipo di elenco fortemente tipizzato in cui convertire i dati JSON.</typeparam>
+    </member>
+    <member name="M:System.Web.Helpers.Json.Decode(System.String)">
+      <summary>Converte i dati in formato JavaScript Object Notation (JSON) in un oggetto dati.</summary>
+      <returns>Dati con codifica JSON convertiti in oggetto dati.</returns>
+      <param name="value">Stringa codificata in formato JSON da convertire.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Json.Decode(System.String,System.Type)">
+      <summary>Converte i dati in formato JavaScript Object Notation (JSON) in un oggetto dati di un tipo specificato.</summary>
+      <returns>Dati con codifica JSON convertiti nel tipo specificato.</returns>
+      <param name="value">Stringa codificata in formato JSON da convertire.</param>
+      <param name="targetType">Tipo in cui devono essere convertiti i dati <paramref name="value" />.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Json.Encode(System.Object)">
+      <summary>Converte un oggetto dati in una stringa in formato JavaScript Object Notation (JSON).</summary>
+      <returns>Restituisce una stringa di dati convertiti nel formato JSON.</returns>
+      <param name="value">Oggetto dati da convertire.</param>
+    </member>
+    <member name="M:System.Web.Helpers.Json.Write(System.Object,System.IO.TextWriter)">
+      <summary>Converte un oggetto dati in una stringa in formato JavaScript Object Notation (JSON) e aggiunge la stringa all'oggetto <see cref="T:System.IO.TextWriter" /> specificato.</summary>
+      <param name="value">Oggetto dati da convertire.</param>
+      <param name="writer">Oggetto che contiene i dati JSON convertiti.</param>
+    </member>
+    <member name="T:System.Web.Helpers.ObjectInfo">
+      <summary>Esegue il rendering dei nomi e dei valori delle proprietà dell'oggetto specificato e di tutti i sottoggetti a cui fa riferimento.</summary>
+    </member>
+    <member name="M:System.Web.Helpers.ObjectInfo.Print(System.Object,System.Int32,System.Int32)">
+      <summary>Esegue il rendering dei nomi e dei valori delle proprietà dell'oggetto specificato e di tutti i sottoggetti.</summary>
+      <returns>Per una variabile semplice, restituisce il tipo e il valore.Per un oggetto contenente più elementi, restituisce il nome o la chiave della proprietà e il valore di ogni proprietà.</returns>
+      <param name="value">Oggetto per cui eseguire il rendering delle informazioni.</param>
+      <param name="depth">Facoltativo.Specifica il livello di nidificazione dei sottoggetti per cui eseguire il rendering.Il valore predefinito è 10.</param>
+      <param name="enumerationLength">Facoltativo.Specifica il numero massimo di caratteri visualizzati dal metodo per i valori dell'oggetto.Il valore predefinito è 1000.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="depth" /> è minore di 0.</exception>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="enumerationLength" /> è minore o uguale a 0.</exception>
+    </member>
+    <member name="T:System.Web.Helpers.ServerInfo">
+      <summary>Visualizza le informazioni sull'ambiente del server Web che ospita la pagina Web corrente.</summary>
+    </member>
+    <member name="M:System.Web.Helpers.ServerInfo.GetHtml">
+      <summary>Visualizza le informazioni sull'ambiente del server Web.</summary>
+      <returns>Stringa di coppie nome/valore che contiene le informazioni sul server Web. </returns>
+    </member>
+    <member name="T:System.Web.Helpers.SortDirection">
+      <summary>Specifica la direzione in base alla quale ordinare un elenco di elementi.</summary>
+    </member>
+    <member name="F:System.Web.Helpers.SortDirection.Ascending">
+      <summary>Ordina gli elementi dal più piccolo al più grande, ad esempio da 1 a 10.</summary>
+    </member>
+    <member name="F:System.Web.Helpers.SortDirection.Descending">
+      <summary>Ordina gli elementi dal più grande al più piccolo, ad esempio da 10 a 1.</summary>
+    </member>
+    <member name="T:System.Web.Helpers.WebCache">
+      <summary>Fornisce una cache per archiviare i dati a cui si accede frequentemente.</summary>
+    </member>
+    <member name="M:System.Web.Helpers.WebCache.Get(System.String)">
+      <summary>Recupera l'elemento specificato dall'oggetto <see cref="T:System.Web.Helpers.WebCache" />.</summary>
+      <returns>Elemento recuperato dalla cache oppure null se l'elemento non viene trovato.</returns>
+      <param name="key">Identificatore per l'elemento della cache da recuperare.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebCache.Remove(System.String)">
+      <summary>Rimuove l'elemento specificato dall'oggetto <see cref="T:System.Web.Helpers.WebCache" />.</summary>
+      <returns>Elemento rimosso dall'oggetto <see cref="T:System.Web.Helpers.WebCache" />.Se l'elemento non viene trovato, restituisce null.</returns>
+      <param name="key">Identificatore per l'elemento della cache da rimuovere.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebCache.Set(System.String,System.Object,System.Int32,System.Boolean)">
+      <summary>Inserisce un elemento nell'oggetto <see cref="T:System.Web.Helpers.WebCache" />.</summary>
+      <param name="key">Identificatore per l'elemento della cache.</param>
+      <param name="value">Dati da inserire nella cache.</param>
+      <param name="minutesToCache">Facoltativo.Numero di minuti per cui conservare un elemento nella cache.Il valore predefinito è 20.</param>
+      <param name="slidingExpiration">Facoltativo.true per indicare che la scadenza dell'elemento della cache viene reimpostata ogni volta che si accede all'elemento oppure false per indicare che la scadenza è basata sul valore temporale assoluto da quando l'elemento è stato aggiunto alla cache.Il valore predefinito è true.In questo caso, se si utilizza il valore predefinito anche per il parametro <paramref name="minutesToCache" />, un elemento memorizzato nella cache scade 20 minuti dopo l'ultimo accesso.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">Il valore di <paramref name="minutesToCache" /> è inferiore o uguale a zero.</exception>
+      <exception cref="T:System.ArgumentOutOfRangeException">La scadenza variabile è abilitata e il valore di <paramref name="minutesToCache" /> è superiore a un anno.</exception>
+    </member>
+    <member name="T:System.Web.Helpers.WebGrid">
+      <summary>Visualizza i dati in una pagina Web mediante un elemento table HTML.</summary>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.#ctor(System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{System.String},System.String,System.Int32,System.Boolean,System.Boolean,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <param name="source">Dati da visualizzare.</param>
+      <param name="columnNames">Raccolta contenente i nomi delle colonne dati da visualizzare.Per impostazione predefinita, questo valore viene popolato automaticamente in base ai valori contenuti nel parametro <paramref name="source" />.</param>
+      <param name="defaultSort">Nome della colonna dati usata per ordinare la griglia per impostazione predefinita.</param>
+      <param name="rowsPerPage">Numero di righe visualizzate in ciascuna pagina della griglia quando il paging è abilitato.Il valore predefinito è 10.</param>
+      <param name="canPage">true per specificare che il paging è abilitato per l'istanza di <see cref="T:System.Web.Helpers.WebGrid" />. In caso contrario, false.Il valore predefinito è true.</param>
+      <param name="canSort">true per specificare che l'ordinamento è abilitato per l'istanza di <see cref="T:System.Web.Helpers.WebGrid" />. In caso contrario, false.Il valore predefinito è true.</param>
+      <param name="ajaxUpdateContainerId">Valore dell'attributo HTML id usato per contrassegnare l'elemento HTML che ottiene gli aggiornamenti Ajax dinamici associati all'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</param>
+      <param name="ajaxUpdateCallback">Nome della funzione JavaScript che viene chiamata dopo l'aggiornamento dell'elemento HTML specificato dalla proprietà <see cref="P:System.Web.Helpers.WebGrid.AjaxUpdateContainerId" />.Se non è specificato il nome di una funzione, non verrà chiamata alcuna funzione.Se la funzione specificata non esiste, si verificherà un errore JavaScript quando questa verrà richiamata.</param>
+      <param name="fieldNamePrefix">Prefisso applicato a tutti i campi stringa di query associati all'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.Questo valore è usato per supportare più istanze di <see cref="T:System.Web.Helpers.WebGrid" /> nella stessa pagina Web.</param>
+      <param name="pageFieldName">Nome del campo stringa di query usato per specificare la pagina corrente dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</param>
+      <param name="selectionFieldName">Nome del campo stringa di query usato per specificare la riga attualmente selezionata dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</param>
+      <param name="sortFieldName">Nome del campo stringa di query usato per specificare il nome della colonna dati in base alla quale è ordinata l'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</param>
+      <param name="sortDirectionFieldName">Nome del campo stringa di query usato per specificare la direzione di ordinamento dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.AddSorter``2(System.String,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+      <summary>Aggiunge una funzione di ordinamento per una colonna specifica.</summary>
+      <returns>Griglia corrente a cui è stato applicato il nuovo ordinatore personalizzato.</returns>
+      <param name="columnName">Nome della colonna (usato per l'ordinamento)</param>
+      <param name="keySelector">Funzione usata per selezionare una chiave in base alla quale eseguire l'ordinamento per ogni elemento nell'origine della griglia.</param>
+      <typeparam name="TElement">Tipo di elementi nell'origine della griglia.</typeparam>
+      <typeparam name="TProperty">Tipo di colonna, di solito dedotto dal tipo restituito della funzione keySelector.</typeparam>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.AjaxUpdateCallback">
+      <summary>Ottiene il nome della funzione JavaScript da chiamare dopo l'aggiornamento dell'elemento HTML associato all'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> in risposta a una richiesta di aggiornamento Ajax.</summary>
+      <returns>Nome della funzione.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.AjaxUpdateContainerId">
+      <summary>Ottiene il valore dell'attributo HTML id che contrassegna un elemento HTML nella pagina Web che riceve gli aggiornamenti Ajax dinamici associati all'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Valore dell'attributo id.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.Bind(System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Int32)">
+      <summary>Associa i dati specificati all'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>L'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> associata e popolata.</returns>
+      <param name="source">Dati da visualizzare.</param>
+      <param name="columnNames">Raccolta contenente i nomi delle colonne dati da associare.</param>
+      <param name="autoSortAndPage">true per abilitare ordinamento e paging dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />. In caso contrario, false.</param>
+      <param name="rowCount">Numero di righe visualizzate in ciascuna pagina della griglia.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.CanSort">
+      <summary>Ottiene un valore che indica se l'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> supporta l'ordinamento.</summary>
+      <returns>true se l'istanza supporta l'ordinamento. In caso contrario, false.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.Column(System.String,System.String,System.Func{System.Object,System.Object},System.String,System.Boolean)">
+      <summary>Crea una nuova istanza di <see cref="T:System.Web.Helpers.WebGridColumn" />.</summary>
+      <returns>Nuova colonna.</returns>
+      <param name="columnName">Nome della colonna dati da associare all'istanza di <see cref="T:System.Web.Helpers.WebGridColumn" />.</param>
+      <param name="header">Testo visualizzato nell'intestazione della colonna della tabella HTML associata all'istanza di <see cref="T:System.Web.Helpers.WebGridColumn" />.</param>
+      <param name="format">Funzione usata per formattare i valori dei dati associati all'istanza di <see cref="T:System.Web.Helpers.WebGridColumn" />.</param>
+      <param name="style">Stringa che specifica il nome della classe CSS usata per definire lo stile delle celle della tabella HTML associate all'istanza di <see cref="T:System.Web.Helpers.WebGridColumn" />.</param>
+      <param name="canSort">true per abilitare l'ordinamento nell'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> mediante i valori dei dati associati all'istanza di <see cref="T:System.Web.Helpers.WebGridColumn" />. In caso contrario, false.Il valore predefinito è true.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.ColumnNames">
+      <summary>Ottiene una raccolta contenente il nome di ciascuna colonna dati associata all'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Raccolta di nomi di colonne dati.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.Columns(System.Web.Helpers.WebGridColumn[])">
+      <summary>Restituisce una matrice contenente le istanze di <see cref="T:System.Web.Helpers.WebGridColumn" /> specificate.</summary>
+      <returns>Matrice di colonne.</returns>
+      <param name="columnSet">Un numero variabile di istanze colonna di <see cref="T:System.Web.Helpers.WebGridColumn" />.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.FieldNamePrefix">
+      <summary>Ottiene il prefisso applicato a tutti i campi stringa di query associati all'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Prefisso per i campi stringa di query dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.GetContainerUpdateScript(System.String)">
+      <summary>Restituisce un'istruzione JavaScript che può essere usata per l'aggiornamento dell'elemento HTML associato all'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> nella pagina Web specificata.</summary>
+      <returns>Istruzione JavaScript che può essere usata per l'aggiornamento dell'elemento HTML in una pagina Web associata all'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</returns>
+      <param name="path">URL della pagina Web contenente l'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> in fase di aggiornamento.L'URL può includere argomenti stringa di query.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.GetHtml(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.String,System.Collections.Generic.IEnumerable{System.Web.Helpers.WebGridColumn},System.Collections.Generic.IEnumerable{System.String},System.Web.Helpers.WebGridPagerModes,System.String,System.String,System.String,System.String,System.Int32,System.Object)">
+      <summary>Restituisce il markup HTML usato per eseguire il rendering dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> e usare le opzioni di paging specificate.</summary>
+      <returns>Markup HTML che rappresenta l'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> completamente popolata.</returns>
+      <param name="tableStyle">Nome della classe CSS usata per definire lo stile dell'intera tabella.</param>
+      <param name="headerStyle">Nome della classe CSS usata per definire lo stile dell'intestazione della tabella.</param>
+      <param name="footerStyle">Nome della classe CSS usata per definire lo stile del piè di pagina della tabella.</param>
+      <param name="rowStyle">Nome della classe CSS usata per definire lo stile di ciascuna riga della tabella.</param>
+      <param name="alternatingRowStyle">Nome della classe CSS usata per definire lo stile delle righe di tabella con numeri pari.</param>
+      <param name="selectedRowStyle">Nome della classe CSS usata per definire lo stile della riga di tabella selezionata.È possibile selezionare solo una riga alla volta.</param>
+      <param name="caption">Didascalia della tabella.</param>
+      <param name="displayHeader">true per visualizzare l'intestazione della tabella. In caso contrario, false.Il valore predefinito è true.</param>
+      <param name="fillEmptyRows">true per inserire righe aggiuntive nell'ultima pagina quando gli elementi di dati disponibili sono insufficienti a riempire tale pagina. In caso contrario, false.Il valore predefinito è false.Le righe aggiuntive vengono popolate usando il testo specificato dal parametro <paramref name="emptyRowCellValue" />.</param>
+      <param name="emptyRowCellValue">Testo usato per popolare le righe aggiuntive in una pagina quando gli elementi di dati disponibili sono insufficienti a riempire l'ultima pagina.Per visualizzare le righe aggiuntive, è necessario impostare il parametro <paramref name="fillEmptyRows" /> su true.</param>
+      <param name="columns">Raccolta di istanze di <see cref="T:System.Web.Helpers.WebGridColumn" /> che specificano la modalità di visualizzazione di ciascuna colonna,incluse la colonna dati associata a ciascuna colonna della griglia e la modalità di formattazione dei valori dati contenuti in ciascuna colonna della griglia.</param>
+      <param name="exclusions">Raccolta contenente i nomi delle colonne dati da escludere quando la griglia esegue il popolamento automatico delle colonne.</param>
+      <param name="mode">Combinazione bit per bit dei valori di enumerazione che specificano i metodi forniti per spostarsi fra le pagine dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</param>
+      <param name="firstText">Testo per l'elemento del collegamento HTML usato per passare alla prima pagina dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.Il flag <see cref="F:System.Web.Helpers.WebGridPagerModes.FirstLast" /> del parametro <paramref name="mode" /> deve essere impostato in modo da visualizzare questo elemento di spostamento nella pagina.</param>
+      <param name="previousText">Testo per l'elemento del collegamento HTML usato per passare alla pagina precedente dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.Il flag <see cref="F:System.Web.Helpers.WebGridPagerModes.NextPrevious" /> del parametro <paramref name="mode" /> deve essere impostato in modo da visualizzare questo elemento di spostamento nella pagina.</param>
+      <param name="nextText">Testo per l'elemento del collegamento HTML usato per passare alla pagina successiva dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.Il flag <see cref="F:System.Web.Helpers.WebGridPagerModes.NextPrevious" /> del parametro <paramref name="mode" /> deve essere impostato in modo da visualizzare questo elemento di spostamento nella pagina.</param>
+      <param name="lastText">Testo per l'elemento del collegamento HTML usato per passare all'ultima pagina dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.Il flag <see cref="F:System.Web.Helpers.WebGridPagerModes.FirstLast" /> del parametro <paramref name="mode" /> deve essere impostato in modo da visualizzare questo elemento di spostamento nella pagina.</param>
+      <param name="numericLinksCount">Numero dei collegamenti numerici alle pagine <see cref="T:System.Web.Helpers.WebGrid" /> vicine.Il testo di ciascun collegamento di pagina numerico contiene il numero di pagina.Il flag <see cref="F:System.Web.Helpers.WebGridPagerModes.Numeric" /> del parametro <paramref name="mode" /> deve essere impostato in modo da visualizzare questi elementi di spostamento nella pagina.</param>
+      <param name="htmlAttributes">Oggetto che rappresenta una raccolta di attributi (nomi e valori) da impostare per l'elemento table HTML che rappresenta l'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.GetPageUrl(System.Int32)">
+      <summary>Restituisce un URL che può essere usato per visualizzare la pagina di dati specificata dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>URL che può essere usato per visualizzare la pagina di dati specificata della griglia.</returns>
+      <param name="pageIndex">Indice della pagina <see cref="T:System.Web.Helpers.WebGrid" /> da visualizzare.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.GetSortUrl(System.String)">
+      <summary>Restituisce un URL che può essere usato per ordinare l'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> in base alla colonna specificata.</summary>
+      <returns>URL che può essere usato per ordinare la griglia.</returns>
+      <param name="column">Nome della colonna dati in base alla quale eseguire l'ordinamento.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.HasSelection">
+      <summary>Ottiene un valore che indica se è selezionata una riga nell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>true se una riga è attualmente selezionata. In caso contrario, false.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.IsAjaxEnabled">
+      <summary>Restituisce un valore che indica se l'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> è in grado di usare chiamate Ajax per aggiornare la visualizzazione.</summary>
+      <returns>true se l'istanza supporta le chiamate Ajax. In caso contrario, false.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.PageCount">
+      <summary>Ottiene il numero delle pagine contenute nell'istanza di <see cref="T:System.Web.Helpers.WebGrid" /></summary>
+      <returns>Totale delle pagine.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.PageFieldName">
+      <summary>Ottiene il nome completo del campo stringa di query usato per specificare la pagina corrente dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Ottiene il nome completo del campo stringa di query usato per specificare la pagina corrente della griglia.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.PageIndex">
+      <summary>Ottiene o imposta l'indice della pagina corrente dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Indice della pagina corrente.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.Pager(System.Web.Helpers.WebGridPagerModes,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Restituisce il markup HTML usato per fornire il supporto di paging specificato per l'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Codice HTML che fornisce il supporto di paging per la griglia.</returns>
+      <param name="mode">Combinazione bit per bit dei valori di enumerazione che specificano i metodi forniti per spostarsi fra le pagine della griglia.L'oggetto predefinito è OR bit per bit dei flag <see cref="F:System.Web.Helpers.WebGridPagerModes.NextPrevious" /> e <see cref="F:System.Web.Helpers.WebGridPagerModes.Numeric" />.</param>
+      <param name="firstText">Testo per l'elemento del collegamento HTML che consente di passare alla prima pagina della griglia.</param>
+      <param name="previousText">Testo per l'elemento del collegamento HTML che consente di passare alla pagina precedente della griglia.</param>
+      <param name="nextText">Testo per l'elemento del collegamento HTML che consente di passare alla pagina successiva della griglia.</param>
+      <param name="lastText">Testo per l'elemento del collegamento HTML che consente di passare all'ultima pagina della griglia.</param>
+      <param name="numericLinksCount">Numero dei collegamenti di pagina numerici da visualizzare.Il valore predefinito è 5.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.Rows">
+      <summary>Ottiene un elenco contenente le righe presenti sulla pagina corrente dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> dopo l'ordinamento della griglia.</summary>
+      <returns>Elenco di righe.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.RowsPerPage">
+      <summary>Ottiene il numero di righe visualizzate in ciascuna pagina dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Numero di righe visualizzate in ciascuna pagina della griglia.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.SelectedIndex">
+      <summary>Ottiene o imposta l'indice della riga selezionata rispetto alla pagina corrente dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Indice della riga selezionata rispetto alla pagina corrente.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.SelectedRow">
+      <summary>Ottiene la riga attualmente selezionata dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Riga attualmente selezionata.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.SelectionFieldName">
+      <summary>Ottiene il nome completo del campo stringa di query usato per specificare la riga selezionata dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Nome completo del campo stringa di query usato per specificare la riga selezionata della griglia.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.SortColumn">
+      <summary>Ottiene o imposta il nome della colonna dati in base alla quale è ordinata l'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Nome della colonna dati usata per ordinare la griglia.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.SortDirection">
+      <summary>Ottiene o imposta la direzione di ordinamento dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Direzione di ordinamento.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.SortDirectionFieldName">
+      <summary>Ottiene il nome completo del campo stringa di query usato per specificare la direzione di ordinamento dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Ottiene il nome completo del campo stringa di query usato per specificare la direzione di ordinamento della griglia.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.SortFieldName">
+      <summary>Ottiene il nome completo del campo stringa di query usato per specificare il nome della colonna dati in base alla quale è ordinata l'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Nome completo del campo stringa di query usato per specificare il nome della colonna dati in base alla quale è ordinata la griglia.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebGrid.Table(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.String,System.Collections.Generic.IEnumerable{System.Web.Helpers.WebGridColumn},System.Collections.Generic.IEnumerable{System.String},System.Func{System.Object,System.Object},System.Object)">
+      <summary>Restituisce il markup HTML usato per eseguire il rendering dell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Markup HTML che rappresenta l'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> completamente popolata.</returns>
+      <param name="tableStyle">Nome della classe CSS usata per definire lo stile dell'intera tabella.</param>
+      <param name="headerStyle">Nome della classe CSS usata per definire lo stile dell'intestazione della tabella.</param>
+      <param name="footerStyle">Nome della classe CSS usata per definire lo stile del piè di pagina della tabella.</param>
+      <param name="rowStyle">Nome della classe CSS usata per definire lo stile di ciascuna riga della tabella.</param>
+      <param name="alternatingRowStyle">Nome della classe CSS usata per definire lo stile delle righe di tabella con numeri pari.</param>
+      <param name="selectedRowStyle">Nome della classe CSS usata per definire lo stile della riga di tabella selezionata.</param>
+      <param name="caption">Didascalia della tabella.</param>
+      <param name="displayHeader">true per visualizzare l'intestazione della tabella. In caso contrario, false.Il valore predefinito è true.</param>
+      <param name="fillEmptyRows">true per inserire righe aggiuntive nell'ultima pagina quando gli elementi di dati disponibili sono insufficienti a riempire tale pagina. In caso contrario, false.Il valore predefinito è false.Le righe aggiuntive vengono popolate usando il testo specificato dal parametro <paramref name="emptyRowCellValue" />.</param>
+      <param name="emptyRowCellValue">Testo usato per popolare le righe aggiuntive nell'ultima pagina quando gli elementi di dati disponibili sono insufficienti a riempire tale pagina.Per visualizzare le righe aggiuntive, è necessario impostare il parametro <paramref name="fillEmptyRows" /> su true.</param>
+      <param name="columns">Raccolta di istanze di <see cref="T:System.Web.Helpers.WebGridColumn" /> che specificano la modalità di visualizzazione di ciascuna colonna,incluse la colonna dati associata a ciascuna colonna della griglia e la modalità di formattazione dei valori dati contenuti in ciascuna colonna della griglia.</param>
+      <param name="exclusions">Raccolta contenente i nomi delle colonne dati da escludere quando la griglia esegue il popolamento automatico delle colonne.</param>
+      <param name="footer">Funzione che restituisce il markup HTML usato per eseguire il rendering del piè di pagina della tabella.</param>
+      <param name="htmlAttributes">Oggetto che rappresenta una raccolta di attributi (nomi e valori) da impostare per l'elemento table HTML che rappresenta l'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebGrid.TotalRowCount">
+      <summary>Ottiene il numero totale delle righe contenute nell'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Numero totale delle righe contenute nella griglia.Questo valore include tutte le righe di ciascuna pagina, ma non include le righe aggiuntive inserite nell'ultima pagina quando gli elementi di dati disponibili sono insufficienti a riempire tale pagina.</returns>
+    </member>
+    <member name="T:System.Web.Helpers.WebGridColumn">
+      <summary>Rappresenta una colonna in un'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+    </member>
+    <member name="M:System.Web.Helpers.WebGridColumn.#ctor">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Web.Helpers.WebGridColumn" />.</summary>
+    </member>
+    <member name="P:System.Web.Helpers.WebGridColumn.CanSort">
+      <summary>Ottiene o imposta un valore che indica se la colonna <see cref="T:System.Web.Helpers.WebGrid" /> può essere ordinata.</summary>
+      <returns>true per indicare che la colonna può essere ordinata. In caso contrario, false.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGridColumn.ColumnName">
+      <summary>Ottiene o imposta il nome dell'elemento dati associato alla colonna <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Nome dell'elemento dati.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGridColumn.Format">
+      <summary>Ottiene o imposta una funzione utilizzata per formattare l'elemento dati associato alla colonna <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Funzione utilizzata per formattare l'elemento dati associato alla colonna.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGridColumn.Header">
+      <summary>Ottiene o imposta il testo di cui viene eseguito il rendering nell'intestazione della colonna <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Testo di cui è stato eseguito il rendering nell'intestazione della colonna.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGridColumn.Style">
+      <summary>Ottiene o imposta l'attributo della classe CSS di cui viene eseguito il rendering come parte delle celle della tabella HTML associate alla colonna <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+      <returns>Attributo della classe CSS applicato alle celle associate alla colonna.</returns>
+    </member>
+    <member name="T:System.Web.Helpers.WebGridPagerModes">
+      <summary>Specifica i flag che descrivono i metodi forniti per lo spostamento tra le pagine di un'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.Questa enumerazione contiene un attributo <see cref="T:System.FlagsAttribute" /> che consente una combinazione bit per bit dei relativi valori dei membri.</summary>
+    </member>
+    <member name="F:System.Web.Helpers.WebGridPagerModes.All">
+      <summary>Indica che sono forniti tutti i metodi per lo spostamento tra le pagine di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+    </member>
+    <member name="F:System.Web.Helpers.WebGridPagerModes.FirstLast">
+      <summary>Indica che sono forniti metodi per passare direttamente alla prima o ultima pagina di <see cref="F:System.Web.Helpers.WebGrid" />.</summary>
+    </member>
+    <member name="F:System.Web.Helpers.WebGridPagerModes.NextPrevious">
+      <summary>Indica che sono forniti metodi per passare alla pagina precedente o successiva di <see cref="F:System.Web.Helpers.WebGrid" />.</summary>
+    </member>
+    <member name="F:System.Web.Helpers.WebGridPagerModes.Numeric">
+      <summary>Indica che sono forniti metodi per passare a una pagina vicina di <see cref="F:System.Web.Helpers.WebGrid" /> utilizzando un numero di pagina.</summary>
+    </member>
+    <member name="T:System.Web.Helpers.WebGridRow">
+      <summary>Rappresenta una riga in un'istanza di <see cref="T:System.Web.Helpers.WebGrid" />.</summary>
+    </member>
+    <member name="M:System.Web.Helpers.WebGridRow.#ctor(System.Web.Helpers.WebGrid,System.Object,System.Int32)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Web.Helpers.WebGridRow" /> utilizzando l'istanza, il valore di riga e l'indice di <see cref="T:System.Web.Helpers.WebGrid" /> specificati.</summary>
+      <param name="webGrid">Istanza di <see cref="T:System.Web.Helpers.WebGrid" /> contenente la riga.</param>
+      <param name="value">Oggetto contenente un membro di proprietà per ogni valore nella riga.</param>
+      <param name="rowIndex">Indice della riga.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebGridRow.GetEnumerator">
+      <summary>Restituisce un enumeratore che può essere utilizzato per scorrere i valori dell'istanza di <see cref="T:System.Web.Helpers.WebGridRow" />.</summary>
+      <returns>Enumeratore che può essere utilizzato per scorrere i valori della riga.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebGridRow.GetSelectLink(System.String)">
+      <summary>Restituisce un elemento HTML (collegamento) che gli utenti possono utilizzare per selezionare la riga.</summary>
+      <returns>Collegamento su cui gli utenti possono fare clic per selezionare la riga.</returns>
+      <param name="text">Testo interno dell'elemento collegamento.Se <paramref name="text" /> è vuoto o null, viene utilizzato "Select".</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebGridRow.GetSelectUrl">
+      <summary>Restituisce l'URL che può essere utilizzato per selezionare la riga.</summary>
+      <returns>URL utilizzato per selezionare una riga.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGridRow.Item(System.Int32)">
+      <summary>Restituisce il valore all'indice specificato nell'istanza di <see cref="T:System.Web.Helpers.WebGridRow" />.</summary>
+      <returns>Valore all'indice specificato.</returns>
+      <param name="index">Indice in base zero del valore della riga da restituire.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="index" /> è minore di 0 o maggiore o uguale al numero di valori nella riga.</exception>
+    </member>
+    <member name="P:System.Web.Helpers.WebGridRow.Item(System.String)">
+      <summary>Restituisce il valore con il nome specificato nell'istanza di <see cref="T:System.Web.Helpers.WebGridRow" />.</summary>
+      <returns>Valore specificato.</returns>
+      <param name="name">Nome del valore nella riga da restituire.</param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="name" /> è Nothing o vuoto.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <paramref name="name" /> specifica un valore che non esiste.</exception>
+    </member>
+    <member name="M:System.Web.Helpers.WebGridRow.System#Collections#IEnumerable#GetEnumerator">
+      <summary>Restituisce un enumeratore che può essere utilizzato per scorrere un insieme.</summary>
+      <returns>Enumeratore che può essere utilizzato per scorrere la raccolta.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebGridRow.ToString">
+      <summary>Restituisce una stringa che rappresenta tutti i valori dell'istanza di <see cref="T:System.Web.Helpers.WebGridRow" />.</summary>
+      <returns>Stringa che rappresenta i valori della riga.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebGridRow.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+      <summary>Restituisce il valore di un membro <see cref="T:System.Web.Helpers.WebGridRow" /> descritto dallo strumento di associazione specificato.</summary>
+      <returns>true se il valore dell'elemento è stato recuperato. In caso contrario, false.</returns>
+      <param name="binder">Metodo Get del membro della proprietà associata.</param>
+      <param name="result">Quando termina, questo metodo restituisce un oggetto che contiene il valore dell'elemento descritto da <paramref name="binder" />.Questo parametro viene passato senza inizializzazione.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebGridRow.Value">
+      <summary>Ottiene un oggetto contenente un membro di proprietà per ogni valore nella riga.</summary>
+      <returns>Oggetto che contiene ogni valore nella riga come proprietà.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebGridRow.WebGrid">
+      <summary>Ottiene l'istanza di <see cref="T:System.Web.Helpers.WebGrid" /> a cui appartiene la riga.</summary>
+      <returns>Istanza di <see cref="T:System.Web.Helpers.WebGrid" /> contenente la riga.</returns>
+    </member>
+    <member name="T:System.Web.Helpers.WebImage">
+      <summary>Rappresenta un oggetto che consente di visualizzare e gestire immagini in una pagina Web.</summary>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.#ctor(System.Byte[])">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Web.Helpers.WebImage" /> utilizzando una matrice di byte per rappresentare l'immagine.</summary>
+      <param name="content">Immagine.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.#ctor(System.IO.Stream)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Web.Helpers.WebImage" /> utilizzando un flusso per rappresentare l'immagine.</summary>
+      <param name="imageStream">Immagine.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.#ctor(System.String)">
+      <summary>Inizializza una nuova istanza della classe <see cref="T:System.Web.Helpers.WebImage" /> utilizzando un percorso per rappresentare la posizione dell'immagine.</summary>
+      <param name="filePath">Percorso del file che contiene l'immagine.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.AddImageWatermark(System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.Int32)">
+      <summary>Aggiunge un'immagine di filigrana utilizzando il percorso dell'immagine stessa.</summary>
+      <returns>Immagine filigranata.</returns>
+      <param name="watermarkImageFilePath">Percorso del file che contiene l'immagine di filigrana.</param>
+      <param name="width">Larghezza, in pixel, dell'immagine di filigrana.</param>
+      <param name="height">Altezza, in pixel, dell'immagine di filigrana.</param>
+      <param name="horizontalAlign">Allineamento orizzontale dell'immagine di filigrana.I valori possibili sono "Left", "Right" o "Center".</param>
+      <param name="verticalAlign">Allineamento verticale della filigrana.I valori possibili sono "Top", "Middle" o "Bottom".</param>
+      <param name="opacity">Opacità dell'immagine di filigrana, specificata come valore compreso tra 0 e 100.</param>
+      <param name="padding">Dimensione, in pixel, del riempimento attorno all'immagine di filigrana.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.AddImageWatermark(System.Web.Helpers.WebImage,System.Int32,System.Int32,System.String,System.String,System.Int32,System.Int32)">
+      <summary>Aggiunge un'immagine di filigrana utilizzando l'oggetto immagine specificato.</summary>
+      <returns>Immagine filigranata.</returns>
+      <param name="watermarkImage">Oggetto <see cref="T:System.Web.Helpers.WebImage" />.</param>
+      <param name="width">Larghezza, in pixel, dell'immagine di filigrana.</param>
+      <param name="height">Altezza, in pixel, dell'immagine di filigrana.</param>
+      <param name="horizontalAlign">Allineamento orizzontale dell'immagine di filigrana.I valori possibili sono "Left", "Right" o "Center".</param>
+      <param name="verticalAlign">Allineamento verticale della filigrana.I valori possibili sono "Top", "Middle" o "Bottom".</param>
+      <param name="opacity">Opacità dell'immagine di filigrana, specificata come valore compreso tra 0 e 100.</param>
+      <param name="padding">Dimensione, in pixel, del riempimento attorno all'immagine di filigrana.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.AddTextWatermark(System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+      <summary>Aggiunge il testo della filigrana all'immagine.</summary>
+      <returns>Immagine filigranata.</returns>
+      <param name="text">Testo da utilizzare come filigrana.</param>
+      <param name="fontColor">Colore del testo della filigrana.</param>
+      <param name="fontSize">Dimensione del carattere del testo della filigrana.</param>
+      <param name="fontStyle">Stile del carattere del testo della filigrana.</param>
+      <param name="fontFamily">Tipo di carattere del testo della filigrana.</param>
+      <param name="horizontalAlign">Allineamento orizzontale del testo della filigrana.I valori possibili sono "Left", "Right" o "Center".</param>
+      <param name="verticalAlign">Allineamento verticale del testo della filigrana.I valori possibili sono "Top", "Middle" o "Bottom".</param>
+      <param name="opacity">Opacità dell'immagine di filigrana, specificata come valore compreso tra 0 e 100.</param>
+      <param name="padding">Dimensione, in pixel, del riempimento attorno al testo della filigrana.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.Clone">
+      <summary>Copia l'oggetto <see cref="T:System.Web.Helpers.WebImage" />.</summary>
+      <returns>Immagine.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.Crop(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>Ritaglia un'immagine.</summary>
+      <returns>Immagine ritagliata.</returns>
+      <param name="top">Numero di pixel da rimuovere dall'alto.</param>
+      <param name="left">Numero di pixel da rimuovere da sinistra.</param>
+      <param name="bottom">Numero di pixel da rimuovere dal basso.</param>
+      <param name="right">Numero di pixel da rimuovere da destra.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebImage.FileName">
+      <summary>Ottiene o imposta il nome file dell'oggetto <see cref="T:System.Web.Helpers.WebImage" />.</summary>
+      <returns>Nome file.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.FlipHorizontal">
+      <summary>Capovolge un'immagine orizzontalmente.</summary>
+      <returns>Immagine capovolta.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.FlipVertical">
+      <summary>Capovolge un'immagine verticalmente.</summary>
+      <returns>Immagine capovolta.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.GetBytes(System.String)">
+      <summary>Restituisce l'immagine come matrice di byte.</summary>
+      <returns>Immagine.</returns>
+      <param name="requestedFormat">Valore <see cref="P:System.Web.Helpers.WebImage.ImageFormat" /> dell'oggetto <see cref="T:System.Web.Helpers.WebImage" />.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.GetImageFromRequest(System.String)">
+      <summary>Restituisce un'immagine che è stata aggiornata utilizzando il browser.</summary>
+      <returns>Immagine.</returns>
+      <param name="postedFileName">(Facoltativo) Nome del file pubblicato.Se non viene specificato alcun nome, viene restituito il primo file che è stato caricato.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebImage.Height">
+      <summary>Ottiene l'altezza, in pixel, dell'immagine.</summary>
+      <returns>Altezza.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebImage.ImageFormat">
+      <summary>Ottiene il formato dell'immagine, ad esempio "jpeg" o "png".</summary>
+      <returns>Formato di file dell'immagine.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.Resize(System.Int32,System.Int32,System.Boolean,System.Boolean)">
+      <summary>Ridimensiona un'immagine.</summary>
+      <returns>Immagine ridimensionata.</returns>
+      <param name="width">Larghezza, in pixel, dell'oggetto <see cref="T:System.Web.Helpers.WebImage" />.</param>
+      <param name="height">Altezza, in pixel, dell'oggetto <see cref="T:System.Web.Helpers.WebImage" />.</param>
+      <param name="preserveAspectRatio">true per mantenere le proporzioni dell'immagine. In caso contrario, false.</param>
+      <param name="preventEnlarge">true per impedire l'ingrandimento dell'immagine. In caso contrario false.</param>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.RotateLeft">
+      <summary>Ruota un'immagine a sinistra.</summary>
+      <returns>Immagine ruotata.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.RotateRight">
+      <summary>Ruota un'immagine a destra.</summary>
+      <returns>Immagine ruotata.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.Save(System.String,System.String,System.Boolean)">
+      <summary>Salva l'immagine utilizzando il nome file specificato.</summary>
+      <returns>Immagine.</returns>
+      <param name="filePath">Percorso in cui salvare l'immagine.</param>
+      <param name="imageFormat">Formato da utilizzare al momento del salvataggio dell'immagine, ad esempio "gif" o "png".</param>
+      <param name="forceCorrectExtension">true per forzare l'utilizzo dell'estensione del nome file corretta per il formato specificato in <paramref name="imageFormat" />. In caso contrario, false.In caso di mancata corrispondenza tra il tipo di file e l'estensione del nome file specificata, e se <paramref name="forceCorrectExtension" /> è true, verrà aggiunta l'estensione corretta al nome file.Ad esempio, un file PNG denominato Photograph.txt viene salvato con il nome Photograph.txt.png.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebImage.Width">
+      <summary>Ottiene la larghezza, in pixel, dell'immagine.</summary>
+      <returns>Larghezza.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebImage.Write(System.String)">
+      <summary>Esegue il rendering dell'immagine nel browser.</summary>
+      <returns>Immagine.</returns>
+      <param name="requestedFormat">(Facoltativo) Formato di file da utilizzare quando l'immagine viene scritta.</param>
+    </member>
+    <member name="T:System.Web.Helpers.WebMail">
+      <summary>Consente di creare e inviare un messaggio di posta elettronica mediante il protocollo SMTP (Simple Mail Transfer Protocol).</summary>
+    </member>
+    <member name="P:System.Web.Helpers.WebMail.EnableSsl">
+      <summary>Ottiene o imposta un valore che indica se viene utilizzato Secure Sockets Layer (SSL) per crittografare la connessione quando viene inviato un messaggio di posta elettronica.</summary>
+      <returns>true se viene utilizzato SSL per crittografare la connessione. In caso contrario, false.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebMail.From">
+      <summary>Ottiene o imposta l'indirizzo di posta elettronica del mittente.</summary>
+      <returns>Indirizzo di posta elettronica del mittente.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebMail.Password">
+      <summary>Ottiene o imposta la password dell'account di posta elettronica del mittente.</summary>
+      <returns>Password del mittente.</returns>
+    </member>
+    <member name="M:System.Web.Helpers.WebMail.Send(System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.String,System.String,System.String)">
+      <summary>Invia il messaggio specificato a un server SMTP per il recapito.</summary>
+      <param name="to">Indirizzo di posta elettronica del destinatario o dei destinatari.Separare più destinatari con un punto e virgola (;).</param>
+      <param name="subject">Riga dell'oggetto del messaggio di posta elettronica.</param>
+      <param name="body">Corpo del messaggio di posta elettronica.Se <paramref name="isBodyHtml" /> è true, il codice HTML nel corpo viene interpretato come markup.</param>
+      <param name="from">(Facoltativo) Indirizzo di posta elettronica del mittente del messaggio oppure null per non specificare un mittente.Il valore predefinito è null.</param>
+      <param name="cc">(Facoltativo) Indirizzo di posta elettronica degli altri destinatari a cui inviare una copia del messaggio oppure null in assenza di ulteriori destinatari.Separare più destinatari con un punto e virgola (;).Il valore predefinito è null.</param>
+      <param name="filesToAttach">(Facoltativo) Insieme di nomi di file che specifica i file da allegare al messaggio di posta elettronica oppure null se non sono presenti file da allegare.Il valore predefinito è null.</param>
+      <param name="isBodyHtml">(Facoltativo) true per specificare che il corpo del messaggio di posta elettronica è in formato HTML, false per indicare che il corpo è in formato testo normale.Il valore predefinito è true.</param>
+      <param name="additionalHeaders">(Facoltativo) Insieme di intestazioni da aggiungere alle normali intestazioni SMTP nel messaggio di posta elettronica oppure null per non inviare intestazioni aggiuntive.Il valore predefinito è null.</param>
+      <param name="bcc">(Facoltativo) Indirizzo di posta elettronica degli altri destinatari a cui inviare una copia "nascosta" del messaggio oppure null in assenza di ulteriori destinatari.Separare più destinatari con un punto e virgola (;).Il valore predefinito è null.</param>
+      <param name="contentEncoding">(Facoltativo) Codifica da utilizzare per il corpo del messaggio.I valori possibili sono quelli delle proprietà della classe <see cref="T:System.Text.Encoding" />, ad esempio <see cref="P:System.Text.Encoding.UTF8" />.Il valore predefinito è null.</param>
+      <param name="headerEncoding">(Facoltativo) Codifica da utilizzare per l'intestazione del messaggio.I valori possibili sono quelli delle proprietà della classe <see cref="T:System.Text.Encoding" />, ad esempio <see cref="P:System.Text.Encoding.UTF8" />.Il valore predefinito è null.</param>
+      <param name="priority">(Facoltativo) Valore ("Normale", "Bassa", "Alta") che specifica la priorità del messaggio.Il valore predefinito è "Normale".</param>
+      <param name="replyTo">(Facoltativo) Indirizzo di posta elettronica che verrà utilizzato quando il destinatario risponderà al messaggio.Il valore predefinito è null, che indica che l'indirizzo della risposta è il valore della proprietà From.</param>
+    </member>
+    <member name="P:System.Web.Helpers.WebMail.SmtpPort">
+      <summary>Ottiene o imposta la porta utilizzata per le transazioni SMTP.</summary>
+      <returns>Porta utilizzata per le transazioni SMTP.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebMail.SmtpServer">
+      <summary>Ottiene o imposta il nome del server SMTP utilizzato per trasmettere il messaggio di posta elettronica.</summary>
+      <returns>Server SMTP.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebMail.SmtpUseDefaultCredentials">
+      <summary>Ottiene o imposta un valore che indica se le credenziali predefinite vengono inviate con le richieste.</summary>
+      <returns>true se le credenziali vengono inviate con il messaggio di posta elettronica. In caso contrario, false.</returns>
+    </member>
+    <member name="P:System.Web.Helpers.WebMail.UserName">
+      <summary>Ottiene o imposta il nome dell'account di posta elettronica utilizzato per inviare messaggi.</summary>
+      <returns>Nome dell'account utente.</returns>
+    </member>
+  </members>
+</doc>

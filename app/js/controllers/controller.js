@@ -59,7 +59,7 @@
                 filters.roles = [];
                 angular.forEach($scope.roles, function (role) {
                     if (role.checked) {
-                        return filters.roles.push(role.ID);
+                        return filters.roles.push(role.Id);
                     }
                 });
                 return $rootscope.$broadcast('app-load-users', filters);
@@ -104,8 +104,8 @@
             return $scope.postFilters();
         };
         $http.get(appData.webservice.roles).success(function (data) {
-            $scope.model.roles = data;
-            $scope.roles = data;
+            $scope.model.roles = data.Roles;
+            $scope.roles = data.Roles;
             if (!$scope.alreadyWatching) {
                 $timeout(function () {
                     return $scope.watchFilters();
@@ -283,8 +283,12 @@
             return $http.post(appData.webservice.userUpdate, $model).error(function (error) {
                 return $rootscope.$broadcast('app-status', true, translationData.getData().errors.newUserError, error);
             }).success(function (data) {
-                if (data.UserID === -1) {
-                    $rootscope.$broadcast('app-status', true, translationData.getData().errors.newUserError, data.errorMessage);
+                if (data.userId=== -1) {
+                    $rootscope.$broadcast('app-status', true, translationData.getData().errors.newUserError, data.errorMessage);//data.errorMessage);
+                    return;
+                }
+                else if (data.userId === 0) {
+                    $rootscope.$broadcast('app-status', true, translationData.getData().errors.newUserError, data.responseMessage);
                     return;
                 }
                 if ($scope.isNew) {
@@ -310,7 +314,7 @@
             }).success(function (data) {
                 $scope.isNew = false;
                 $scope.reset();
-                $scope.user = data ? data : {};
+                $scope.user = data ? data.user : {};
                 $scope.visible = data ? true : false;
                 if ($scope.visible) {
                     $rootscope.$broadcast('show-modal');
@@ -321,7 +325,7 @@
             });
         });
         $http.get(appData.webservice.roles).success(function (data) {
-            return $scope.roles = data;
+            return $scope.roles = data.Roles;
         });
     };
 
@@ -375,7 +379,6 @@
         $self.translate = translations.userTiles;
         $self.usersCount = 0;
         $self.typeView = 0;
-
         $self.exportUsers = function () {
             $window.open('/desktopmodules/UManage/ExcelExport.aspx?pid=' + $fum.portalID + '&rpp=9999&cp=0' + '&key=' + $scope.model.filters.name + '&roles=' + $scope.model.filters.roles.join() + '&deleted=' + $scope.model.filters.deleted + '&unauth=' + $scope.model.filters.unauth + '&orderby=' + $scope.model.filters.orderby + '&orderclause=' + $scope.model.filters.orderclause);
         }
@@ -401,14 +404,14 @@
                 return $rootscope.$broadcast('app-status', true, translations.errors.usersLoadError, error);
             }).success(function (data) {
                 var _i, _ref, _results;
-                $self.usersCount = data[0] ? data[0].TotalRows : 0;
-                $self.pages = data[0] ? (function () {
+                $self.usersCount = data.Users[0] ? data.Users[0].TotalRows : 0;
+                $self.pages = data.Users[0] ? (function () {
                     _results = [];
-                    for (var _i = 0, _ref = data[0].Pages; 0 <= _ref ? _i < _ref : _i > _ref; 0 <= _ref ? _i++ : _i--) { _results.push(_i); }
+                    for (var _i = 0, _ref = data.Users[0].Pages; 0 <= _ref ? _i < _ref : _i > _ref; 0 <= _ref ? _i++ : _i--) { _results.push(_i); }
                     return _results;
                 }).apply(this) : [0];
-                $self.cacheUsers = data;
-                $self.users = data;
+                $self.cacheUsers = data.Users;
+                $self.users = data.Users;
                 return defer.notify('foo');
             }).then(function () {
                 defer.resolve();
@@ -424,7 +427,7 @@
             return $rootscope.$broadcast('app-open-detail', user);
         };
         $self.impersonate = function (user) {
-            var gotoUrl = angular.element(document.querySelector("#VAR_PageBase")).text() + "/iu/" + user.UserID;
+            var gotoUrl = angular.element(document.querySelector("#VAR_PageBase")).val() + "/iu/" + user.UserID;
             $window.location.href = gotoUrl;
         };
 

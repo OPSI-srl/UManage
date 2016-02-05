@@ -1,0 +1,5 @@
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\bin\UManage.Business.dll
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\bin\UManage.Business.pdb
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\DesktopModules\UManage\Business\obj\Debug\UManage.Business.dll
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\DesktopModules\UManage\Business\obj\Debug\UManage.Business.pdb
+\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\DesktopModules\UManage\Business\obj\Debug\UManage.Business.csprojResolveAssemblyReference.cache
