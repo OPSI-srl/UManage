@@ -1,0 +1,31 @@
+
+<aside data-ng-form="form_vertical_menu" data-ng-class="{expandend: !collapsed}" class="app-aside menu-vertical">
+  <div data-ng-click="collapseMenu()" class="icon-menu">filters</div>
+  <h5><span data-ng-bind="translate.search"></span>
+    <nobr><small><span data-ng-bind="translate.searchHelp"></span></small></nobr>
+  </h5>
+  <p>
+    <input type="text" data-ng-model="model.filters.name"/>
+  </p>
+  <hr/>
+  <h5 data-ng-bind="translate.status"></h5>
+  <p><span class="checkbox-switch">
+      <input id="users-filter-deleted" type="checkbox" data-ng-model="model.filters.deleted" data-ng-true-value="true" data-ng-false-value="false" class="normalCheckBox"/>
+      <label for="users-filter-deleted"><span data-ng-bind="translate.deleted"></span></label></span></p>
+  <p><span class="checkbox-switch">
+      <input id="users-filter-authorized" type="checkbox" data-ng-model="model.filters.unauth" data-ng-true-value="true" data-ng-false-value="false" class="normalCheckBox"/>
+      <label for="users-filter-authorized"><span data-ng-bind="translate.authorized"></span></label></span></p>
+  <h5 data-ng-bind="translate.roles"></h5>
+  <p>
+    <opsi-filter-roles id="menu-vertical-roles" data-roles="roles" data-translate="translate" data-show-maximum-roles="5"></opsi-filter-roles>
+  </p>
+  <hr/>
+  <h5 data-ng-bind="translate.actions"></h5>
+  <p><a data-ng-class="{'active': form_vertical_menu.$dirty, 'disabled': !form_vertical_menu.$dirty}" data-ng-click="resetFilters()" data-ng-bind="translate.reset" class="button"></a></p>
+  <p><a data-ng-click="newUser()" data-ng-bind="translate.newUser" class="button active icon-user-add"></a></p>
+  <div class="danger-zone">
+    <h5 data-ng-bind="translate.dangerZone" class="icon-attention"></h5>
+    <p><a data-ng-bind="translate.dangerZoneRemoveUnauthorized" data-ng-click="removeUnauth()" class="button danger icon-trash"></a></p>
+    <p><a data-ng-bind="translate.dangerZoneRemoveDeleted" data-ng-click="removeDeleted()" class="button danger icon-trash"></a></p>
+  </div>
+</aside>

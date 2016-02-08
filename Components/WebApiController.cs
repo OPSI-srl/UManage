@@ -174,6 +174,15 @@ namespace OPSI.UManage.WebApi
                 }
                 else
                 {
+
+                    //Updating profile data (needed for First name, Last name...)
+                    v_DNN_UserInfo = UserController.GetUserById(v_Current_Portal_ID, v_DNN_UserInfo.UserID);
+                    v_DNN_UserInfo.Profile.PreferredLocale = DotNetNuke.Services.Localization.LocaleController.Instance.GetCurrentLocale(v_Current_Portal_ID).Code;
+                    v_DNN_UserInfo.Profile.PreferredTimeZone = TimeZoneInfo.Local;
+                    v_DNN_UserInfo.Profile.FirstName = v_Received_User.FirstName;
+                    v_DNN_UserInfo.Profile.LastName = v_Received_User.LastName;
+                    UserController.UpdateUser(v_Current_Portal_ID, v_DNN_UserInfo);
+
                     v_Update_Result.errorMessage = "creationok";
                     v_Update_Result.UserID = v_DNN_UserInfo.UserID;
                 }
