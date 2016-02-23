@@ -5,14 +5,14 @@
   <div class="app-section">
 
     <div id="panel_normal" runat="server">
-        <h5>Clicca qui per lanciare il modulo</h5>
+        <h5>Click here to launch the module</h5>
         <asp:LinkButton cssClass="dnnPrimaryAction" runat="server" ID="lnk_launcher" onclick="lnk_launcher_click">
-          Lancia il modulo
+          Launch the module
         </asp:LinkButton>
     </div>
 
       <div id="panel_unregistereduser" runat="server" visible="false">
-        Il modulo non è accessibile dagli utenti non autenticati.
+        The module is not available to non authenticated users.
     </div>
 
   </div>
