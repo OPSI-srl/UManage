@@ -116,7 +116,7 @@
       $fumProvider.setProperty('profilePicPath', PROFILEPICURL);
       $fumProvider.setProperty('sudo', parseInt('@isSudo'));
       $fumProvider.setProperty('tabID', serviceFramework.getTabId());
-      $fumProvider.setProperty('currentLanguage', umanage['@currentLocale']);
+      $fumProvider.setProperty('currentLanguage', '@currentLocale');
       $fumProvider.setProperty('portalID', '@Dnn.ModuleContext.PortalId');
       console.log(umanage['@currentLocale'])
     });
