@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPSI_Security", "OPSI_Security\OPSI_Security.csproj", "{04519F64-E024-4D6D-9AB4-8A2043885010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPSI_Logger", "OPSI_Logger\OPSI_Logger.csproj", "{3A69A29B-C1DD-48AA-AEDA-18BB37FC7E83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UManage_Repository", "UManage_Repository\UManage_Repository.csproj", "{6A5D6671-4F61-4EFF-8141-448C6E6D9396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UManage_WebAPI", "UManage_WebAPI\UManage_WebAPI.csproj", "{3D046B52-DB80-4180-A990-E44E1C05F8E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04519F64-E024-4D6D-9AB4-8A2043885010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04519F64-E024-4D6D-9AB4-8A2043885010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04519F64-E024-4D6D-9AB4-8A2043885010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04519F64-E024-4D6D-9AB4-8A2043885010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A69A29B-C1DD-48AA-AEDA-18BB37FC7E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A69A29B-C1DD-48AA-AEDA-18BB37FC7E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A69A29B-C1DD-48AA-AEDA-18BB37FC7E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A69A29B-C1DD-48AA-AEDA-18BB37FC7E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A5D6671-4F61-4EFF-8141-448C6E6D9396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A5D6671-4F61-4EFF-8141-448C6E6D9396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A5D6671-4F61-4EFF-8141-448C6E6D9396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A5D6671-4F61-4EFF-8141-448C6E6D9396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D046B52-DB80-4180-A990-E44E1C05F8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D046B52-DB80-4180-A990-E44E1C05F8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D046B52-DB80-4180-A990-E44E1C05F8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D046B52-DB80-4180-A990-E44E1C05F8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

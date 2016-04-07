@@ -1,0 +1,10 @@
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\OPSI_Test_Repository.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\OPSI_Test_Repository.pdb
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\UManage_Repository\obj\Debug\UManage_Repository.csprojResolveAssemblyReference.cache
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\UManage_Repository\obj\Debug\OPSI_Test_Repository.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\UManage_Repository\obj\Debug\OPSI_Test_Repository.pdb
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\UManage_Repository\obj\Debug\UManage_Repository.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\opsi_dev_8\bin\UManage_Repository.dll
+C:\inetpub\wwwroot\opsi_dev_8\bin\UManage_Repository.pdb
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\UManage_Repository\obj\Debug\UManage_Repository.dll
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\UManage_Repository\obj\Debug\UManage_Repository.pdb

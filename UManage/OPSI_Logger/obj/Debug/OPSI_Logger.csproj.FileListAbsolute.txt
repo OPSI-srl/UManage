@@ -1,0 +1,8 @@
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\OPSI_Logger\obj\Debug\OPSI_Logger.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\OPSI_Logger\obj\Debug\OPSI_Logger.pdb
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\OPSI_Logger.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\OPSI_Logger.pdb
+C:\inetpub\wwwroot\opsi_dev_8\bin\OPSI_Logger.dll
+C:\inetpub\wwwroot\opsi_dev_8\bin\OPSI_Logger.pdb
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\OPSI_Logger\obj\Debug\OPSI_Logger.dll
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\OPSI_Logger\obj\Debug\OPSI_Logger.pdb

@@ -1,0 +1,11 @@
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\UManage_Module.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\UManage_Module.pdb
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\MVC\UManage\obj\Debug\UManage_Module.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\MVC\UManage\obj\Debug\UManage_Module.pdb
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\MVC\UManage\obj\Debug\UManage_Module.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\MVC\UManage\obj\Debug\UManage_Module.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\opsi_dev_8\bin\UManage.dll.config
+C:\inetpub\wwwroot\opsi_dev_8\bin\UManage.dll
+C:\inetpub\wwwroot\opsi_dev_8\bin\UManage.pdb
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\MVC\UManage\obj\Debug\UManage.dll
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\MVC\UManage\obj\Debug\UManage.pdb

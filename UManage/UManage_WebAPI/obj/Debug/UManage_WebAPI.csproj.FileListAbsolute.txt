@@ -1,0 +1,10 @@
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\UManage_WebAPI\obj\Debug\UManage_WebAPI.csprojResolveAssemblyReference.cache
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\UManage_WebAPI.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\UManage_WebAPI.pdb
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\UManage_WebAPI\obj\Debug\UManage_WebAPI.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\UManage_WebAPI\obj\Debug\UManage_WebAPI.pdb
+C:\inetpub\wwwroot\opsi_dev_8\bin\UManage_WebAPI.dll
+C:\inetpub\wwwroot\opsi_dev_8\bin\UManage_WebAPI.pdb
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\UManage_WebAPI\obj\Debug\UManage_WebAPI.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\UManage_WebAPI\obj\Debug\UManage_WebAPI.dll
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\UManage_WebAPI\obj\Debug\UManage_WebAPI.pdb

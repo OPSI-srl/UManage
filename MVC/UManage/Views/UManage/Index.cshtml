@@ -1,0 +1,152 @@
+@using DotNetNuke.Web.Mvc.Helpers
+@using DotNetNuke.Framework.JavaScriptLibraries
+@using DotNetNuke.Security
+@using DotNetNuke.Web.Client.ClientResourceManagement
+@using DotNetNuke.Entities.Modules
+@using DotNetNuke.Entities.Users
+@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage
+
+@{
+  ClientResourceManager.RegisterStyleSheet(Dnn.DnnPage, "~/DesktopModules/MVC/UManage/ngapp/css/style.css");
+  ClientResourceManager.RegisterStyleSheet(Dnn.DnnPage, "~/DesktopModules/MVC/UManage/ngapp/bower_components/entypo/font/entypo.css");
+  ClientResourceManager.RegisterScript(Dnn.DnnPage, "~/DesktopModules/MVC/UManage/ngapp/bower_components/angular/angular.min.js");
+  ClientResourceManager.RegisterScript(Dnn.DnnPage, "~/DesktopModules/MVC/UManage/ngapp/localization/localization.js");
+  ClientResourceManager.RegisterScript(Dnn.DnnPage, "~/DesktopModules/MVC/UManage/ngapp/js/controllers/controller.js");
+  ClientResourceManager.RegisterScript(Dnn.DnnPage, "~/DesktopModules/MVC/UManage/ngapp/js/directives/directives.js");
+  ClientResourceManager.RegisterScript(Dnn.DnnPage, "~/DesktopModules/MVC/UManage/ngapp/js/services/service.js");
+  ClientResourceManager.RegisterScript(Dnn.DnnPage, "~/DesktopModules/MVC/UManage/ngapp/js/app.js");
+}
+
+@{
+  int isSudo = Dnn.ModuleContext.EditMode.ToString().Equals("True") ? 1 : 0;
+  string currentLocale = System.Threading.Thread.CurrentThread.CurrentCulture.Name.Split('-')[0].ToString();
+
+  <input type="hidden" value="@Dnn.ModuleContext.ModuleId" id="hid_mid" />
+  <input type="hidden" value="@Dnn.ModuleContext.PortalId" id="hid_pid" />
+  <input type="hidden" value="@(Dnn.ModuleContext.EditMode.ToString().Equals("True") ? 1 : 0)" id="VAR_IsAdmin" />
+  <input type="hidden" value="@DotNetNuke.Common.Globals.NavigateURL()" id="VAR_PageBase" />
+  <input type="hidden" value="/DesktopModules/MVC/UManage/" id="VAR_ModulePath" />
+  <input type="hidden" value="@Dnn.DnnPage.ResolveUrl("~/profilepic.ashx?userid=")" id="VAR_ProfilePicBasePath"/>
+  <input type="hidden" value="@currentLocale" id="VAR_CurrentLanguage" />
+
+  string SITE_URL = Dnn.DnnPage.ResolveUrl("~/");
+
+  var moduleController = new ModuleController();
+  var adminUserModule = moduleController.GetModuleByDefinition(Dnn.ModuleContext.PortalId, "User Accounts");
+  string url = DotNetNuke.Common.Globals.NavigateURL(adminUserModule.TabID, "Edit", "mid=" + adminUserModule.ModuleID, "userId={{userid}}", "popUp=true");
+
+  if (Request["iu"] != null)
+  {
+    if (Request["iu"].ToString() != "")
+    {
+      // impersonating a user feels like . . .
+      int uid = int.Parse(Request["iu"].ToString());
+
+      //UserInfo MyUserInfo = UserController.GetUser(this.PortalId, uid, true);
+      UserInfo MyUserInfo = UserController.GetUserById(Dnn.ModuleContext.PortalId, uid);
+      if ((MyUserInfo != null))
+      {
+        //Remove user from cache
+        if (Page.User != null)
+        {
+          DotNetNuke.Common.Utilities.DataCache.ClearUserCache(Dnn.PortalSettings.PortalId, Context.User.Identity.Name);
+        }
+
+        // sign current user out
+        PortalSecurity objPortalSecurity = new PortalSecurity();
+        objPortalSecurity.SignOut();
+
+        // sign new user in
+        UserController.UserLogin(Dnn.PortalSettings.PortalId, MyUserInfo, Dnn.PortalSettings.PortalName, Request.UserHostAddress, false);
+
+        // redirect to the base url
+        if (HttpContext.Current.Request.IsSecureConnection)
+        {
+          Response.Redirect("https://" + Dnn.PortalSettings.PortalAlias.HTTPAlias, true);
+        }
+        else
+        {
+          Response.Redirect("http://" + Dnn.PortalSettings.PortalAlias.HTTPAlias, true);
+        }
+      }
+    }
+  }
+}
+<script>
+  ;(function () {
+    'use strict';
+    // getting a new serviceFramework instance for the angular app
+    var angular;
+    var app;
+    var serviceFramework;
+
+    var SITEROOT = '@SITE_URL';
+    var APPFOLDER = `${SITEROOT}desktopmodules/MVC/UManage`;
+    var PROFILEPICURL = `${SITEROOT}desktopmodules/MVC/UManage`;
+    var FULLEDITURL = '@url';
+
+    angular = this.angular;
+
+    if (!$.ServicesFramework) return (function () {
+      $(function () {
+        $('.opsi-app--umanage').remove();
+      })
+    })();
+
+    serviceFramework = $.ServicesFramework(parseInt('@Dnn.ModuleContext.ModuleId'));
+
+    angular.module('opsiModule')
+    // configuring http provider
+    .config(function ($httpProvider) {
+      return $httpProvider.defaults.headers.get = $httpProvider.defaults.headers.post = {
+        Accept: 'text/html',
+        'Content-Type': 'text/html; charset=UTF-8',
+        ModuleId: serviceFramework.getModuleId(),
+        RequestVerificationToken: serviceFramework.getAntiForgeryValue(),
+        TabId: serviceFramework.getTabId(),
+        'X-Requested-With': 'XMLHttpRequest'
+      };
+    })
+    // configuring fum provider
+    .config(function ($fumProvider) {
+      $fumProvider.setProperty('fullEditPath', FULLEDITURL);
+      $fumProvider.setProperty('moduleApi', serviceFramework.getServiceRoot('UManage'));
+      $fumProvider.setProperty('moduleID', serviceFramework.getModuleId());
+      $fumProvider.setProperty('modulePath', APPFOLDER);
+      $fumProvider.setProperty('profilePicPath', PROFILEPICURL);
+      $fumProvider.setProperty('sudo', parseInt('@isSudo'));
+      $fumProvider.setProperty('tabID', serviceFramework.getTabId());
+      $fumProvider.setProperty('currentLanguage', umanage['@currentLocale']);
+      $fumProvider.setProperty('portalID', '@Dnn.ModuleContext.PortalId');
+      console.log(umanage['@currentLocale'])
+    });
+
+    // bootstrapping the app
+    // setTimeout(function () {
+    //   angular.bootstrap(document.querySelector('#opsi-fum-application'), ['opsiModule']);
+    // }, 10);
+    $(function () {
+      angular.bootstrap(document.querySelectorAll('.opsi-app--umanage'), ['opsiModule'])
+    });
+  }).call(this);
+
+</script>
+<section class="app opsi-app opsi-app--umanage">
+  <header class="app-header">
+    <h1 class="app-logo"><a>UManage <small>- User Manager</small></a></h1>
+    <nav class="app-menu opsi-main-menu">
+      <a class="closeme" href="@Dnn.DnnPage.ResolveUrl("~/")">Close UManage<span class="closeme__icon icon-cancel"></span></a>
+    </nav>
+  </header>
+  <app-menu></app-menu>
+  <main class="app-section">
+    <opsi-user-tiles></opsi-user-tiles>
+    <opsi-user-detail></opsi-user-detail>
+  </main>
+  <footer class="app-footer">
+    Module developed with <span class="icon-heart" title="code"></span>by <strong><a href="http://www.opsi.it" target="_blank">OPSI </a></strong>©2016. Released under GNU/GPL licence.
+  </footer>
+  <opsi-dialog></opsi-dialog>
+  <opsi-dialog-modal></opsi-dialog-modal>
+  <app-error></app-error>
+</section>

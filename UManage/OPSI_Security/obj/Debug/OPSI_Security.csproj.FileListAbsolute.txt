@@ -1,0 +1,10 @@
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\OPSI_Security\obj\Debug\OPSI_Security.csprojResolveAssemblyReference.cache
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\OPSI_Security\obj\Debug\OPSI_Security.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\DesktopModules\UManage\OPSI_Security\obj\Debug\OPSI_Security.pdb
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\OPSI_Security.dll
+K:\Work\OPSI\DNN_8_Dev\Portal\bin\OPSI_Security.pdb
+C:\inetpub\wwwroot\opsi_dev_8\bin\OPSI_Security.dll
+C:\inetpub\wwwroot\opsi_dev_8\bin\OPSI_Security.pdb
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\OPSI_Security\obj\Debug\OPSI_Security.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\OPSI_Security\obj\Debug\OPSI_Security.dll
+C:\inetpub\wwwroot\opsi_dev_8\DesktopModules\UManage\OPSI_Security\obj\Debug\OPSI_Security.pdb
