@@ -1,6 +1,0 @@
-﻿
-
-
-IF OBJECT_ID('{databaseOwner}{objectQualifier}OPSI_UManage_UsersSearch', 'P') IS NOT NULL
-DROP PROCEDURE {databaseOwner}{objectQualifier}OPSI_UManage_UsersSearch
-GO

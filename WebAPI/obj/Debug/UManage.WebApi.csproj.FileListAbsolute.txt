@@ -1,5 +1,0 @@
-\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\bin\UManage.WebApi.dll
-\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\bin\UManage.WebApi.pdb
-\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\DesktopModules\UManage\WebAPI\obj\Debug\UManage.WebApi.csprojResolveAssemblyReference.cache
-\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\DesktopModules\UManage\WebAPI\obj\Debug\UManage.WebApi.dll
-\\ITMILOPSISVI\Portali_Web\DNNCorp\Platform80\DesktopModules\UManage\WebAPI\obj\Debug\UManage.WebApi.pdb

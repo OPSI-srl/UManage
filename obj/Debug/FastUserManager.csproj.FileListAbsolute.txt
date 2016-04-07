@@ -1,4 +1,0 @@
-\\itmilopsisvi\Portali_Web\OPSI\dev.dnn.711\bin\OPSI_UsersDirectory.dll
-\\itmilopsisvi\Portali_Web\OPSI\dev.dnn.711\bin\OPSI_UsersDirectory.pdb
-\\itmilopsisvi\Portali_Web\OPSI\dev.dnn.711\DesktopModules\FastUserManager\obj\Debug\OPSI_UsersDirectory.dll
-\\itmilopsisvi\Portali_Web\OPSI\dev.dnn.711\DesktopModules\FastUserManager\obj\Debug\OPSI_UsersDirectory.pdb
