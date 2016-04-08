@@ -18,3 +18,7 @@ Frontend:
 
 * Added a records per page numeric input.
 * Feature freeze before full rewriting.
+
+Bugfix:
+
+* Fixed a bug while exporting the user (the url for the export was hard coded).

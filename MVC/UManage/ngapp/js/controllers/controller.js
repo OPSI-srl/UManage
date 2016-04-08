@@ -380,12 +380,7 @@
         $self.typeView = 0;
 
         $self.exportUsers = function () {
-            //SISTEMARE IL PATH in maniera corretta.
-            // se uso
-            // http://localhost/opsi_dev_8/desktopmodules/MVC/UManage/ExcelExport.aspx?pid=0&rpp=9999&cp=0&key=&roles=&deleted=false&unauth=false&orderby=displayname&orderclause=ASC
-            // funziona.
-            // viene gestito male.
-            $window.open('/desktopmodules/MVC/UManage/ExcelExport.aspx?pid=' + $fum.portalID + '&rpp=9999&cp=0' + '&key=' + $scope.model.filters.name + '&roles=' + $scope.model.filters.roles.join() + '&deleted=' + $scope.model.filters.deleted + '&unauth=' + $scope.model.filters.unauth + '&orderby=' + $scope.model.filters.orderby + '&orderclause=' + $scope.model.filters.orderclause);
+            $window.open($fum.modulePath +'/ExcelExport.aspx?pid=' + $fum.portalID + '&rpp=9999&cp=0' + '&key=' + $scope.model.filters.name + '&roles=' + $scope.model.filters.roles.join() + '&deleted=' + $scope.model.filters.deleted + '&unauth=' + $scope.model.filters.unauth + '&orderby=' + $scope.model.filters.orderby + '&orderclause=' + $scope.model.filters.orderclause);
         }
         $self.fullEdit = function (user) {
             var url;
