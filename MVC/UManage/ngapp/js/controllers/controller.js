@@ -281,7 +281,7 @@
                 });
             });
             if (!isvalid) return;
-            if ($scope.user.Password !== $scope.user.PasswordConfirm) return;
+            if ($scope.user.password !== $scope.user.passwordConfirm) return;
             if ($model.Password && $model.Password.length < 7) return $rootscope.$broadcast('app-status', true, translationData.getData().errors.passwordNotLongEnough, translationData.getData().errors.passwordNotLongEnough);
             return $http.post(appData.webservice.userUpdate, $model).error(function (error) {
                 return $rootscope.$broadcast('app-status', true, translationData.getData().errors.newUserError, error);

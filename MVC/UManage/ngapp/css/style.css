@@ -1003,7 +1003,8 @@ select.ng-pristine,
   color: #6b6b6b;
 }
 .app-dialog {
-  position: absolute;
+  /*position: absolute;*/
+  position: fixed;
   top: 0;
   left: 50%;
   -webkit-border-radius: 3px/5px;
