@@ -23,3 +23,4 @@ Bugfix:
 
 * Fixed a bug while exporting the user (the url for the export was hard coded).
 * Fixed a bug which allowed user creation with non matching passwords.
+* Fixes a glitch with modal dialogs
