@@ -391,7 +391,7 @@
         };
         $self.loadUsers = function (filters) {
             var interpolate;
-            filters.roles = filters && filters.roles ? filters.roles.join() : '';
+            filters.roles = filters && filters.roles && Array.isArray(filters.roles) ? filters.roles.join() : '';
             interpolate = $interpolate(appData.webservice.userList);
             defer.reject('Asked for a new promise');
             $self.isLoading = true;
