@@ -1,4 +1,3 @@
-
 <div data-ng-class="{loading: tiles.isLoading}" class="user-list">
     <opsi-user-filters data-ng-show="tiles.usersCount &gt; 0" data-orderby="tiles.model.orderby" data-orderclause="tiles.model.orderclause" data-page-number="tiles.model.currentPage" data-pages="tiles.pages" data-user-count="tiles.usersCount"></opsi-user-filters>
     <div data-ng-show="tiles.usersCount == 0" class="user no-users-found">
@@ -12,7 +11,8 @@
         <article data-ng-class="{'in-edit': user.edit}" data-ng-repeat="user in tiles.users | limitTo: tiles.limit" class="user list">
             <div class="tile">
                 <header data-ng-class="{deleted: user.IsDeleted, 'not-authorized': !user.Authorised}" class="header">
-                    <h3 class="name">{{user.DisplayName}}<br /><small>{{user.Username}}</small></h3><img data-ng-src="{{user.Profile_Picture_URL}}" alt="{{user.DisplayName}}" class="user-portrait small" /><span data-ng-if="user.online" data-title="This user is online!" class="badge online"></span>
+                    <h3 class="name">{{user.DisplayName}}<br /><small>{{user.Username}}</small></h3><img data-ng-src="{{user.Profile_Picture_URL}}" alt="{{user.DisplayName}}" class="user-portrait small" /><span data-ng-if="user.online" data-title="This user is online!"
+                        class="badge online"></span>
                 </header>
                 <div class="content">
                     <span class="date">
@@ -22,7 +22,20 @@
                         {{tiles.translate.lastAccess}}
                         <time>{{user.LastLoginDate | date}}</time>
                     </span>
-                    <address>{{tiles.translate.email}}:<strong><a href="mailto:{{user.Email}}">{{user.Email}}&nbsp;</a></strong>{{tiles.translate.phone}}:<strong><a href="mailto:{{user.Telephone}}">{{user.Telephone}}&nbsp;</a></strong></address>
+                    <address>
+	                    {{tiles.translate.email}}:
+	                    <strong>
+	                    	<a href="mailto:{{user.Email}}">{{user.Email}}&nbsp;</a>
+	                    </strong>
+	                    {{tiles.translate.userID}}:
+	                    <strong>
+	                    	{{user.UserID}}&nbsp;
+	                    </strong>
+	                    {{tiles.translate.phone}}:
+	                    <strong>
+	                    	<a href="mailto:{{user.Telephone}}">{{user.Telephone}}&nbsp;</a>
+	                    </strong>
+                    </address>
                 </div>
                 <div data-ng-class="{visible: user.edit}" class="actions">
                     <h6>{{tiles.translate.actionsAvailable}}</h6>
@@ -40,6 +53,7 @@
     <div class="type-view-grid" data-ng-hide="tiles.typeView==0" style="margin-top: 20px; overflow-x: scroll;">
         <table>
             <tr class="head-table">
+                <td>{{tiles.translate.userID}}</td>
                 <td>{{tiles.translate.userName}}</td>
                 <td>{{tiles.translate.firstName}}</td>
                 <td>{{tiles.translate.lastName}}</td>
@@ -50,6 +64,7 @@
                 <td></td>
             </tr>
             <tr data-ng-repeat="user in tiles.users | limitTo: tiles.limit" data-ng-class="{deleted: user.IsDeleted, 'not-authorized': !user.Authorised}">
+                <td>{{user.UserID}}</td>
                 <td>{{user.Username}}</td>
                 <td>{{user.FirstName}}</td>
                 <td>{{user.LastName}}</td>
