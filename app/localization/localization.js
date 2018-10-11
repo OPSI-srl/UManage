@@ -108,8 +108,9 @@ umanage["en"] = {
         "lastAccess": "Last access",
         "noUsersFound": "Sorry, it seems nobody's here.",
         "phone": "Phone",
-        "userName": "DNN User Name",
-        "firstName": "Firt Name",
+        "userID": "DNN User ID",
+        "userName": "DNN Username",
+        "firstName": "First Name",
         "lastName": "Last Name",
         "displayName": "Display Name",
     }
